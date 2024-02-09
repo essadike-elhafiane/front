@@ -1,95 +1,68 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+import { useEffect, useState } from 'react';
+import '../style/landingPage.css';
+import localfont from '@next/font/local'
+import axios from 'axios';
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+const Itcfront = localfont(
+  {
+    // name: 'Itcfront',
+    src: '/../../fronts/ITC-Franklin-Gothic-LT-Medium-Condensed.ttf',
+    weight: '400',
+  }
+);
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+export default function landingPage()
+{
+    const [data, setData] = useState(null);
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    useEffect(() => {
+        const getdata = async () => {
+            try {
+                const res = await axios.get('http://localhost:3000/status',
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    withCredentials: true,
+                }
+                );
+                    setData(res.data);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+        }
+        getdata();
+        console.log('data:', data);
+      },[]);
+    
+    return (
+        <>
+            <div>{data? data.userName : 'loding...'}</div>
+            {/* <button onClick={getdata}>Get data</button> */}
+            {/* <nav>
+                <div className='logoContainer'>
+                    <img src="/logo.png" alt="" className='logo'/>
+                    <h1>PONG<span>MASTER</span></h1>
+                </div>
+                <div className='navLinks'>
+                    <a href='#'>Home</a>
+                    <a href='#'>About</a>
+                    <a href='#'>Contact</a>
+                    <a href='http://localhost:3000/login'>Login</a>
+                </div>
+            </nav>
+            <div className={`container ${Itcfront.className}`}>
+                <div className='text'>
+                    <h1>WELCOME TO PONG<span>MASTER</span></h1>
+                    <p>Master the art of pong</p>
+                {/* <h1>PONG<span>MASTER</span></h1>
+                <p>Master the art of pong</p> */}
+                {/* </div> */}
+                {/*// <img src="/Player_One5.png" alt="" className='PongImg'/>8}}
+            {/*</div> */}
+        </>
+        );
 }
