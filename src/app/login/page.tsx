@@ -4,15 +4,15 @@ import '../../style/styles.css'
 import Signup from '../../components/sinup'
 import React, { useState } from 'react';
 import Signin from '../../components/singin';
-import { Lalezar } from '@next/font/google'
+// import { Lalezar } from '@next/font/google'
 // import authIntra from '../../auth/auth';
 
-const lalezar = Lalezar(
-  {
-    subsets: [],
-    weight: ['400'],
-  }
-);
+// const lalezar = Lalezar(
+//   {
+//     subsets: [],
+//     weight: ['400'],
+//   }
+// );
 
 async function authIntra()
 {
@@ -35,7 +35,7 @@ function main()
     
     return (
         
-        <div className={'container' + ' ' + `${lalezar.className}`} >
+        <div className={'container' + ' ' + ``} >
             <div className='row'>
             <h1 className='h1logo'>PO<span>ng</span>Master</h1>
                 
