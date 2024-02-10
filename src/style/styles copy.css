@@ -20,9 +20,10 @@ body{
     color: white;
     justify-content: center;
     align-items: center;
-    background: url("../images/Luxury\ Navy\ Background.jpg");
-    /* background: url("../images/graduation-blue-background_23-2149354160.jpe  g"); */
-   
+    /* background: url("../images/Luxury\ Navy\ Background.jpg"); */
+    /* background: url("../images/graduation-blue-background_23-2149354160.jpeg"); */
+    
+   background: linear-gradient(-90deg, rgba(4, 10, 47, 0.8), #333);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -30,7 +31,9 @@ body{
     line-height: 1.6em;
     overflow: hidden;
     
-    /* backdrop-filter: saturate(120%); */
+    /* backdrop-filter: blur(20px) ; */
+    backdrop-filter: saturate(120%);
+    /* backdrop-filter: saturate(20%); */
 }
 
 .container{
@@ -39,8 +42,7 @@ body{
     height: 608px;
     border-radius: 20px;
     border: 0.5px, 0px, 0px, 0px;
-    background: linear-gradient(180deg, rgba(4, 10, 47, 1),
-     rgba(4, 10, 47, 1));
+    background: transparent;
     background-blend-mode: overlay;
     box-shadow: 0px 4px 4px 0px #00000040;
     border-top: 0.5px solid #0064FB;
@@ -235,7 +237,6 @@ h1 span{
         align-items: center;
         justify-content: center;
         border-radius: 0px;
-
         background: transparent;
     }
     .row{

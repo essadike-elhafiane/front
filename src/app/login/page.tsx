@@ -1,10 +1,11 @@
 "use client";
 import '../../style/styles.css'
+// import '../../style/styles copy.css';
 import Signup from '../../components/sinup'
 import React, { useState } from 'react';
 import Signin from '../../components/singin';
 import { Lalezar } from '@next/font/google'
-import authIntra from '../../auth/auth';
+// import authIntra from '../../auth/auth';
 
 const lalezar = Lalezar(
   {
@@ -12,6 +13,15 @@ const lalezar = Lalezar(
     weight: ['400'],
   }
 );
+async function authIntra()
+{
+    window.location.href = 'http://localhost:3000/api/auth/intra';
+}
+
+function authGoogle()
+{
+    window.location.href = 'http://localhost:3000/api/auth/google';
+}
 // import Head from 'next/head';
 // import { useClient } from 'blitz';
 function main()
@@ -26,7 +36,7 @@ function main()
         
         <div className={'container' + ' ' + `${lalezar.className}`} >
             <div className='row'>
-            <h1 className='h1logo'></h1>
+            <h1 className='h1logo'>PO<span>ng</span>Master</h1>
                 
                 {/* <img src='/Ping_Master.png' id='logo'></img>  */}
               <div id='loginBtn'>
@@ -43,11 +53,11 @@ function main()
             </div>
             <div className='row1'>
                 <div id='div-row1'>
-                    <div  className='btnAuth' onClick={()=> {authIntra()}}>
+                    <div  className='btnAuth' onClick={authIntra}>
                       <img src="/intra.png" alt="" />
                       <span>Intra</span>
                     </div>
-                    <div  className='btnAuth'>
+                    <div  className='btnAuth' onClick={authGoogle}>
                       <img src='/googlelogo.png' alt="" />
                       <span>Google</span>
                     </div>

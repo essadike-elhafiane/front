@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    /* display: flex; */
+    color: white;
+    /* justify-content: center;
+    align-items: center; */
+    background-image: url("../images/Luxury\ Navy\ Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    /* overflow: hidden; */
+    
+    /* backdrop-filter: blur(20px) ; */
+    /* backdrop-filter: saturate(40%) blur(20px); */
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 94px;
+    background: linear-gradient(0deg, #081041, #081041),
+    linear-gradient(0deg, #1B266B, #1B266B);  
+    border-bottom: 1px solid #1B266B;
+    box-shadow: 5px 4px 10px 0px #02041D; 
+}
+
+
+.logoContainer{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.logoContainer img{
+    width: 100px;
+    height: 100px;
+}
+
+.logoContainer h1{
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+.logoContainer h1 span{
+    color: #0064FB;
+}
+
+.navLinks{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.navLinks a{
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+    font-size: 1.2em;
+}
+
+.PongImg{
+    width: 50%;
+    /* height: 50%; */
+    object-fit: cover;
+}
+
+.container{
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: space-around;
+    height: calc(100vh - 94px);
+    /* background-color: beige; */
+}

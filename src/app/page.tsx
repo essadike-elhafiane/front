@@ -13,10 +13,23 @@ const Itcfront = localfont(
   }
 );
 
+interface data {
+    id: number | 0,
+    createdAt: Date,
+    updatedAt: Date,
+    userName: string | null,
+    email: string | null,
+    image: string | null,
+    firstName: string,
+    lastName: string,
+    token: boolean,
+    online: boolean
+}
+
 
 export default function landingPage()
 {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<data>({id: 0, createdAt: new Date(), updatedAt: new Date(), userName: '', email: '', image: '', firstName: '', lastName: '', token: false, online: false});
 
     useEffect(() => {
         const getdata = async () => {
@@ -34,13 +47,15 @@ export default function landingPage()
                     console.error('Error:', error);
                 }
         }
-        getdata();
+        setTimeout(() => {
+            getdata();
+        }, 1000);
         console.log('data:', data);
       },[]);
     
     return (
         <>
-            <div>{data? data.userName : 'loding...'}</div>
+            <div>{data? JSON.stringify(data) : 'loding...'}</div>
             {/* <button onClick={getdata}>Get data</button> */}
             {/* <nav>
                 <div className='logoContainer'>
