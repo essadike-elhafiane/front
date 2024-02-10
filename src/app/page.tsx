@@ -2,16 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import '../style/landingPage.css';
-import localfont from '@next/font/local'
+
 import axios from 'axios';
 
-const Itcfront = localfont(
-  {
-    // name: 'Itcfront',
-    src: '/../../fronts/ITC-Franklin-Gothic-LT-Medium-Condensed.ttf',
-    weight: '400',
-  }
-);
+
 
 interface data {
     id: number | 0,
