@@ -1,0 +1,22 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main  # or your default branch
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14'  # Use the node version compatible with your project
+    - run: npm install
+    - run: npm run build
+    - run: npm run export  # Only if your Next.js version supports it for static export
+    - uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages  # The branch the action should deploy to.
+        FOLDER: out  # The folder the action should deploy.
+        CLEAN: true  # Automatically remove deleted files from the deployment
