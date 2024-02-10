@@ -54,11 +54,11 @@ function main()
             <div className='row1'>
                 <div id='div-row1'>
                     <div  className='btnAuth' onClick={authIntra}>
-                      <img src="/intra.png" alt="" />
+                      <img src="./intra.png" alt="" />
                       <span>Intra</span>
                     </div>
                     <div  className='btnAuth' onClick={authGoogle}>
-                      <img src='/googlelogo.png' alt="" />
+                      <img src='./googlelogo.png' alt="" />
                       <span>Google</span>
                     </div>
                 </div>
