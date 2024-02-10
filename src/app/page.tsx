@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import '../style/landingPage.css';
+// import { useEffect, useState } from 'react';
+// import '../style/landingPage.css';
 
 import axios from 'axios';
 
@@ -23,29 +23,29 @@ interface data {
 
 export default function landingPage()
 {
-    const [data, setData] = useState<data>({id: 0, createdAt: new Date(), updatedAt: new Date(), userName: '', email: '', image: '', firstName: '', lastName: '', token: false, online: false});
+    // const [data, setData] = useState<data>({id: 0, createdAt: new Date(), updatedAt: new Date(), userName: '', email: '', image: '', firstName: '', lastName: '', token: false, online: false});
 
-    useEffect(() => {
-        const getdata = async () => {
-            try {
-                const res = await axios.get('http://localhost:3000/status',
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    withCredentials: true,
-                }
-                );
-                    setData(res.data);
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-        }
+    // useEffect(() => {
+    //     const getdata = async () => {
+    //         try {
+    //             const res = await axios.get('http://localhost:3000/status',
+    //             {
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 withCredentials: true,
+    //             }
+    //             );
+    //                 setData(res.data);
+    //             } catch (error) {
+    //                 console.error('Error:', error);
+    //             }
+    //     }
         // setTimeout(() => {
         //     getdata();
         // }, 1000);
-        console.log('data:', data);
-      },[]);
+    //     console.log('data:', data);
+    //   },[]);
     
     return (
         <>
