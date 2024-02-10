@@ -41,15 +41,15 @@ export default function landingPage()
                     console.error('Error:', error);
                 }
         }
-        setTimeout(() => {
-            getdata();
-        }, 1000);
+        // setTimeout(() => {
+        //     getdata();
+        // }, 1000);
         console.log('data:', data);
       },[]);
     
     return (
         <>
-            <div>{data? JSON.stringify(data) : 'loding...'}</div>
+            {/* <div>{data? JSON.stringify(data) : 'loding...'}</div> */}
             {/* <button onClick={getdata}>Get data</button> */}
             {/* <nav>
                 <div className='logoContainer'>
@@ -72,6 +72,13 @@ export default function landingPage()
                 {/* </div> */}
                 {/*// <img src="/Player_One5.png" alt="" className='PongImg'/>8}}
             {/*</div> */}
+
+            <input type="text" id="username" name="username" placeholder="Username" />
+            <input type="text" id="username" name="username" placeholder="Username" />
+            <input type="text" id="username" name="username" placeholder="Username" />
+            <input type="text" id="username" name="username" placeholder="Username" />
+            <input type="text" id="username" name="username" placeholder="Username" />
+            <input type="text" id="username" name="username" placeholder="Username" />
         </>
         );
 }
