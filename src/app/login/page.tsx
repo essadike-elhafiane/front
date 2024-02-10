@@ -13,6 +13,7 @@ const lalezar = Lalezar(
     weight: ['400'],
   }
 );
+
 async function authIntra()
 {
     window.location.href = 'http://localhost:3000/api/auth/intra';

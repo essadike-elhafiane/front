@@ -90,18 +90,13 @@ body{
 .input{
     width: 286px;
     height: 46px;
-    border: transparent;
     margin-bottom: 12px;
     border-radius: 10px;
-    border: 0.5px, 0px, 0px, 0px;
+    border: transparent;
     background:  rgb(8, 16, 65,0);
-    /* border-top: 2.5px solid #0064FB; */
     border-top: 0.5px solid #0064FB;
     background: linear-gradient(0deg, #081041, #081041),
     linear-gradient(0deg, #0064FB, #0064FB);
-
-    /* border: 1px solid #fb2a00; */
-    font-family: Inter;
     font-size: 16px;
     font-weight: 500;
     line-height: 14px;
@@ -176,7 +171,6 @@ body{
     padding-top: 15px;
     padding-bottom: 8px;
     margin-top: 20px;
-    /* background-color: #FFFFFF; */
     border-left: 1px solid #0064FB;
     /* border-left: green solid 2px; */
 }
