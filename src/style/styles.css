@@ -11,7 +11,14 @@
     --denary-color: #000000;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+*{
+    font-family: 'Lalezar', system-ui;
+}
+
 body{
+    
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -318,7 +325,7 @@ h1 span{
         flex-direction: flex-start;
         justify-content: center;
         /* margin: auto; */
-        animation: none;
+        animation: down .5s ease;
     }
 
     @keyframes down{

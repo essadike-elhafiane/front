@@ -1,13 +1,3 @@
-// import { Lalezar } from '@next/font/google'
-
-// const lalezar = Lalezar(
-//   {
-//     subsets: [],
-//     weight: ['400'],
-//   }
-// );
-
-
 export default function Signin() {
 
     const arr = ["Email or Username", "Password"];
@@ -18,7 +8,7 @@ export default function Signin() {
     return (
         <div className='input-container'>
             {input}
-            <button id="singbtn" className={``}>Sign in</button>
+            <button id="singbtn">Sign in</button>
         </div>
     )
 }

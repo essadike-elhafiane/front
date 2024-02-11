@@ -1,12 +1,4 @@
 import { useState } from "react";
-// import { Lalezar } from '@next/font/google'
-
-// const lalezar = Lalezar(
-//   {
-//     subsets: [],
-//     weight: ['400'],
-//   }
-// );
 
 interface ErrorInput {
     [key: string]: boolean;
