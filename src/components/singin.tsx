@@ -12,7 +12,7 @@ export default function Signin() {
 
     const arr = ["Email or Username", "Password"];
     const input = arr.map((item) => {
-             return <input key={item} type={item === "Password"? 'Password' : 'text'} className={`input `} placeholder={item} />
+             return <input name={item} key={item} type={item === "Password"? 'Password' : 'text'} className={`input `} placeholder={item} />
     })
 
     return (

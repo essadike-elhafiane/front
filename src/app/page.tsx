@@ -1,7 +1,7 @@
 "use client";
 
 // import { useEffect, useState } from 'react';
-// import '../style/landingPage.css';
+import '../style/landingPage.css';
 
 import axios from 'axios';
 
