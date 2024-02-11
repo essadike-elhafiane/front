@@ -1,4 +1,4 @@
-import { url } from "inspector"
+import style from '../../src/style/styles.css'
 
 
 export const metadata = {
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={style.body}>
         {children}     
       </body>
     </html>
