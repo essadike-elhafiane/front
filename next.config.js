@@ -5,10 +5,7 @@
 
 const nextConfig = {
     output: 'export',
-    minify: true,
-    experimental: {
-      amp: true,
-    },
-    compress: true,
+    images: { unoptimized: true } 
+   
   }
  module.exports = nextConfig

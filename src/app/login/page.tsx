@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import '../../style/styles.css'
 // import '../../style/styles copy.css';
 import Signup from '../../components/sinup'
@@ -25,7 +26,7 @@ function main()
             <div className='row'>
             <h1 className='h1logo'>PO<span>ng</span>Master</h1>
                 
-                {/* <img src='/Ping_Master.png' id='logo'></img>  */}
+                //img
               <div id='loginBtn'>
                   <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{
                     setsign(false)
@@ -41,11 +42,11 @@ function main()
             <div className='row1'>
                 <div id='div-row1'>
                     <div  className='btnAuth' onClick={authIntra}>
-                      <img src="./intra.png" alt="" />
+                      <Image src="./intra.png" alt="" width={'100'} height={'100'}/>
                       <span>Intra</span>
                     </div>
                     <div  className='btnAuth' onClick={authGoogle}>
-                      <img src='./googlelogo.png' alt="" />
+                      <Image src='./googlelogo.png' alt="" width={'100'} height={'100'}/>
                       <span>Google</span>
                     </div>
                 </div>

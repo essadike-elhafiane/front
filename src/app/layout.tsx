@@ -1,3 +1,4 @@
+import { url } from "inspector"
 
 
 export const metadata = {
@@ -12,13 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-      </head>
       <body>
-        {children}
-        <footer>
-          {/* <p> © 2021 Next.js</p> */}
-        </footer>      
+        {children}     
       </body>
     </html>
   )
