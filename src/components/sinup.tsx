@@ -48,7 +48,7 @@ export default function Signup() {
     }
 
     let input = arr.map((item: string) => {
-        return <input name={item}  autocomplete="off" key={item} className={`input ${ErrorInput[item] ? "InputError" : ""}`}
+        return <input name={item}  autoComplete="off" key={item} className={`input ${ErrorInput[item] ? "InputError" : ""}`}
             type="text" placeholder={item}
             onChange={(e) => {
                 setInput({ ...inputs, [item]: e.target.value });
