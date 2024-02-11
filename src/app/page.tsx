@@ -73,12 +73,12 @@ export default function landingPage()
                 {/*// <img src="/Player_One5.png" alt="" className='PongImg'/>8}}
             {/*</div> */}
 
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <input type="text" id="username" name="username" placeholder="Username" />
-            <input type="text" id="username" name="username" placeholder="Username" />
+            <input type="text" id="username1" placeholder="Username" />
+            <input type="text" id="username2" placeholder="Username" />
+            <input type="text" id="username3" placeholder="Username" />
+            <input type="text" id="username4" placeholder="Username" />
+            <input type="text" id="username5" placeholder="Username" />
+            <input type="text" id="username6" placeholder="Username" />
         </>
         );
 }

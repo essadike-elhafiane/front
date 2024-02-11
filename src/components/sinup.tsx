@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Lalezar } from '@next/font/google'
+// import { Lalezar } from '@next/font/google'
 
-const lalezar = Lalezar(
-  {
-    subsets: [],
-    weight: ['400'],
-  }
-);
+// const lalezar = Lalezar(
+//   {
+//     subsets: [],
+//     weight: ['400'],
+//   }
+// );
 
 interface ErrorInput {
     [key: string]: boolean;
@@ -48,7 +48,7 @@ export default function Signup() {
     }
 
     let input = arr.map((item: string) => {
-        return <input key={item} className={`input ${ErrorInput[item] ? "InputError" : ""} ${lalezar.className}`}
+        return <input key={item} className={`input ${ErrorInput[item] ? "InputError" : ""}`}
             type="text" placeholder={item}
             onChange={(e) => {
                 setInput({ ...inputs, [item]: e.target.value });
@@ -58,7 +58,7 @@ export default function Signup() {
     return (
         <div className="input-container">
             {input}
-            <button id="singbtn" className={`${lalezar.className}`}
+            <button id="singbtn" className={``}
                 onClick={() => checkInput(inputs)}
             >Sign up</button>
         </div>
