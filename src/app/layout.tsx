@@ -1,4 +1,4 @@
-import style from '../../src/style/styles.css'
+
 
 
 export const metadata = {
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={style.body}>
+      <body>
         {children}     
       </body>
     </html>

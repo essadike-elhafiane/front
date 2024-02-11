@@ -3,7 +3,7 @@ import Image from 'next/image';
 import '../../style/styles.css'
 // import '../../style/styles copy.css';
 import Signup from '../../components/sinup'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Signin from '../../components/singin';
 
 
@@ -19,14 +19,29 @@ function authGoogle()
 function main()
 {
     const [insignin, setsign] = useState(true);
-    
+    const handleSelection = () => {
+      const selection = window.getSelection();
+      if (selection?.type === "Range") {
+        console.log("selected text:", selection.toString());
+      }
+    };
+    useEffect(() => {
+      const cleanup = () => {
+        document.removeEventListener("selectionchange", handleSelection);
+      };
+  
+      document.addEventListener("selectionchange", handleSelection);
+  
+      return cleanup;
+    });
     return (
-        
+
+
         <div className='container' >
             <div className='row'>
-            <h1 className='h1logo'>PO<span>ng</span>Master</h1>
+              <h1 className='h1logo'>PO<span>ng</span>Master</h1>
                 
-                //img
+              
               <div id='loginBtn'>
                   <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{
                     setsign(false)
