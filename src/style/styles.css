@@ -15,8 +15,8 @@ body{
     color: white;
     justify-content: center;
     align-items: center;
-    /* background: url("/background.jpg"); */
-    background-image: url("/background.jpg") ;
+    background: url("/background.jpg");
+    /* background-image: url("/background.jpg"); */
     /* background: url("../images/graduation-blue-background_23-2149354160.jpe  g"); */
    
     background-size: cover;
