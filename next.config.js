@@ -3,7 +3,7 @@
  */
 const nextConfig = {
     output: 'export',
-    // images: { unoptimized: true },
+    images: { unoptimized: true },
     // Other optional configurations...
   };
   
