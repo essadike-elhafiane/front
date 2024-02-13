@@ -25,6 +25,7 @@
     margin: 0;
     padding: 0;
 }
+
 .bg{
     z-index: -1 ;
     position: fixed;
@@ -84,11 +85,11 @@ nav{
     object-fit: cover;
 }
 
-.container{
+/* .container{
     display: flex;
     height: auto;
     align-items: center;
     justify-content: space-around;
     height: calc(100vh - 94px);
     /* background-color: beige; */
-}
+/*} */
