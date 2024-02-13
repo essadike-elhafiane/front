@@ -8,8 +8,8 @@
 }
 
 .main{
-    /* position: absolute; */
-    width: 100%;
+    position: absolute;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -213,7 +213,6 @@ h1 span{
     }
 
     .container{
-        /* margin-top: 10%; */
         width: 360px;
         max-height: 100%;
         flex-direction: column;
@@ -221,7 +220,7 @@ h1 span{
         justify-content: center;
         border-radius: 0px;
 
-        background: transparent;
+        /* background: transparent; */
     }
     .row{
         /* background-color: red; */
