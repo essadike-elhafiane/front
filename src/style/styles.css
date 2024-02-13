@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap'); */
 
 
-*{
+/* *{
     font-family: 'Lalezar', system-ui;
     margin: 0;
     padding: 0;
-}
+} */
 
 .main{
     position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;   
@@ -38,9 +39,9 @@
     /* background-color: #0064FB; */
 }
 
-.row h1{
+/* .row h1{
     margin-bottom: 40px;
-}
+} */
 
 #loginBtn a
 {
@@ -200,35 +201,40 @@ h1 span{
 
 .h1logo{
     width: 100%;
-    /* text-align: center; */
+    text-align: center;
     margin-top: 40px;
-    /* margin-left: 130px; */
+    margin-bottom: 40px;
     padding-bottom: 10px;
 }
 
 
 @media (max-width: 768px){
+
+    *{
+        font-size: 20px;
+    }
     body{
        align-items: flex-start;
     }
 
     .container{
-        width: 360px;
-        max-height: 100%;
+        width: 100%;
+        max-width: 360px;
+        height: auto;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         border-radius: 0px;
-
-        /* background: transparent; */
     }
     .row{
         /* background-color: red; */
         height: auto;
         padding: 0px;
         margin: 0px;;
+        text-align: center;
         width: auto;
     }
+
     .row1{
         border-top: 1px solid #0064FB;
         
@@ -264,9 +270,11 @@ h1 span{
     /* .h1logo{
         margin-left: 0px;
     } */
-    /* .input{
-        width: 100%;
-    } */
+    .input{
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+    }
     /* .input-container{
         /* margin-top: 0px; */
     /* } */
@@ -277,12 +285,11 @@ h1 span{
         height: auto;
     }
     #singbtn{
+        font-size: 20px;
         margin: auto;
-        /* margin: 0px; */
-        /* color: red; */
-        /* justify-self: center; */
     }
     #loginBtn a{
+        font-size: 25px;
         padding: 1px;
     } 
      /* .btnAuth{
@@ -293,6 +300,11 @@ h1 span{
     } 
     .h1logo{
         margin-left: 0px;
+        /* display: inline; */
+        margin: 10px;
+        padding-bottom: 0;
+        /* background-color: red; */
+        position: relative;
         /* position: fixed; */
     }
     
@@ -301,6 +313,8 @@ h1 span{
     } */
     .input-container{
         width: 308px;
+        margin-top: 30px;
+        font-size: 14px;
         /* background-color: red; */
         /* padding-top: 10px; */
         /* padding-left: 10px; */
@@ -327,7 +341,93 @@ h1 span{
         display: none;
     }
 
+    .btnAuth{
+        border-radius: 50%;
+        margin: 5px;
+    }
+    .btnAuth img{
+        margin-top: 5px;
+        width:25px;
+        height: 25px;
+    }
     /* .btnAuth span::after{
         /* content:  'asfafa'; */
     /*} */
+}
+
+@media (max-width: 311px){
+    .container{
+        width: 100%;
+        height: auto;
+    }
+    .input{
+        max-width: calc(100% - 40px);
+        font-size: 12px;
+        margin-bottom: 5px;
+        margin-left: 3%;
+    }
+    *{
+        font-size: 25px;
+    }
+    .h1logo{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        display: inline;
+    }
+    #singbtn{
+        /* width: 80%; */
+        font-size: 20px;
+        /* margin-left: 10%; */
+    }
+
+    .input-container{
+        width: calc(100% - 10px);
+        margin: 10px 10px;
+        /* flex-direction: row; */
+        /* align-items: center; */
+        padding-top: 20px;
+        /* flex-wrap: wrap; */
+        /* background-color: red; */
+    }
+    .row{
+        text-align: center  ;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+    }
+    .row1{
+        padding: 10px;
+        margin: 0px;
+    }
+    #loginBtn{
+        width: 100%;
+       
+        /* background-color: red; */
+    }
+
+    .btnAuth{
+        margin: 0px;
+        padding: 0px;
+        border-radius: 50%;
+        /* width: 100%; */
+    }
+    .btnAuth img{
+        margin-top: 5px;
+        width:25px;
+        height: 25px;
+    }
+    .h1logo{
+        width: 100%;
+        text-align: center;
+    }
+
+    #loginBtn a{
+        width: 100%;
+        font-size: 20px;
+        /* margin-left: 10%; */
+    }
+    
 }

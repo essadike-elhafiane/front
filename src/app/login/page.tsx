@@ -1,12 +1,11 @@
 "use client";
-import Image from 'next/image';
 import '../../style/styles.css'
+import Image from 'next/image';
 // import '../../style/styles copy.css';
 import Signup from '@/components/sinup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/singin';
 import BackGround from '@/components/bg';
-
 
 async function authIntra()
 {
@@ -17,24 +16,11 @@ function authGoogle()
 {
     window.location.href = 'http://localhost:3000/api/auth/google';
 }
+
 function main()
 {
     const [insignin, setsign] = useState(true);
-    const handleSelection = () => {
-      const selection = window.getSelection();
-      if (selection?.type === "Range") {
-        console.log("selected text:", selection.toString());
-      }
-    };
-    useEffect(() => {
-      const cleanup = () => {
-        document.removeEventListener("selectionchange", handleSelection);
-      };
-  
-      document.addEventListener("selectionchange", handleSelection);
-  
-      return cleanup;
-    });
+   
     return (
 
         <>
@@ -42,7 +28,7 @@ function main()
         <div className='main'>
           <div className='container' >
               <div className='row'>
-                <h1 className='h1logo'>PO<span>ng</span>Master</h1>
+          <h1 className='h1logo'>PO<span>ng</span>Master</h1>
                   
                 
                 <div id='loginBtn'>
@@ -54,7 +40,7 @@ function main()
                       setsign(true);
                     }}>Login</a>
 
-                    {insignin? <Signin /> : <Signup/>}
+                    {insignin? <Signin/> : <Signup/>}
                 </div>
               </div>
               <div className='row1'>
