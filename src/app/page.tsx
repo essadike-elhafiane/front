@@ -1,9 +1,11 @@
 "use client";
 
 // import { useEffect, useState } from 'react';
-import '../style/landingPage.css';
 
-import axios from 'axios';
+import '../style/landingPage.css';
+import Image from 'next/image';
+import BackGround from '@/components/bg';
+// import axios from 'axios';
 
 
 
@@ -47,8 +49,10 @@ export default function landingPage()
     //     console.log('data:', data);
     //   },[]);
     
+    
     return (
         <>
+            <BackGround />
             {/* <div>{data? JSON.stringify(data) : 'loding...'}</div> */}
             {/* <button onClick={getdata}>Get data</button> */}
             {/* <nav>
@@ -72,13 +76,14 @@ export default function landingPage()
                 {/* </div> */}
                 {/*// <img src="/Player_One5.png" alt="" className='PongImg'/>8}}
             {/*</div> */}
-
-            <input type="text" id="username1" placeholder="Username" />
-            <input type="text" id="username2" placeholder="Username" />
-            <input type="text" id="username3" placeholder="Username" />
-            <input type="text" id="username4" placeholder="Username" />
-            <input type="text" id="username5" placeholder="Username" />
-            <input type="text" id="username6" placeholder="Username" />
+            <div style={{color:'red',}}>
+                <input type="text" id="username1" placeholder="Username" />
+                <input type="text" id="username2" placeholder="Username" />
+                <input type="text" id="username3" placeholder="Username" />
+                <input type="text" id="username4" placeholder="Username" />
+                <input type="text" id="username5" placeholder="Username" />
+                <input type="text" id="username6" placeholder="Username" />
+            </div>
         </>
         );
 }

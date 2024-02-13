@@ -5,6 +5,7 @@ import '../../style/styles.css'
 import Signup from '../../components/sinup'
 import React, { useEffect, useState } from 'react';
 import Signin from '../../components/singin';
+import BackGround from '@/components/bg';
 
 
 async function authIntra()
@@ -36,7 +37,8 @@ function main()
     });
     return (
 
-
+        <>
+        <BackGround/>
         <div className='container' >
             <div className='row'>
               <h1 className='h1logo'>PO<span>ng</span>Master</h1>
@@ -67,6 +69,7 @@ function main()
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

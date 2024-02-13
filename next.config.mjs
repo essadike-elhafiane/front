@@ -3,6 +3,9 @@
  */
 
 const nextConfig = {
+    images: {
+        unoptimized: true,
+      },
     // output: 'export',
     // images: { unoptimized: true } 
 }

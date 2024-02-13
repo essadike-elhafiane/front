@@ -1,24 +1,36 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+/* body{
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
     /* display: flex; */
-    color: white;
+    /* color: white; */
     /* justify-content: center;
     align-items: center; */
-    background-image: url("/Luxury\ Navy\ Background.jpg");
-    background-size: cover;
+    /* background-image: url("/Luxury\ Navy\ Background.jpg"); */
+    /* background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     font-size: 1.2em;
-    line-height: 1.6em;
+    line-height: 1.6em; */
     /* overflow: hidden; */
     
     /* backdrop-filter: blur(20px) ; */
     /* backdrop-filter: saturate(40%) blur(20px); */
+/* } */ 
+*{
+    font-family: 'Lalezar', system-ui;
+    margin: 0;
+    padding: 0;
 }
-
+.bg{
+    z-index: -1 ;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
 
 nav{
     display: flex;

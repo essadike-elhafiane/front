@@ -5,6 +5,11 @@
     font-family: 'Lalezar', system-ui;
 }
 
+.gb{
+    z-index: -1 ;
+    position: fixed;
+}
+
 body{
     
     margin: 0;
