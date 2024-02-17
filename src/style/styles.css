@@ -101,19 +101,39 @@
 
 .ErrorMessage{
     color: rgb(233, 113, 113);
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 5px;
+    margin-bottom: 5px;
     max-height: 12px;
     line-height: 10px;
     /* margin-bottom: 5px; */
     margin-left: 5px;
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
+
+@keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    10% {
+      transform: translateX(-2px);
+    }
+    20% {
+      transform: translateX(2px);
+    }
+    30% {
+      transform: translateX(-2px);
+    }
+  }
 
 .input-container{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 50px;
+    margin-top: 30px;
     font-family: inherit;
     animation: zomIn .5s ease;
 }

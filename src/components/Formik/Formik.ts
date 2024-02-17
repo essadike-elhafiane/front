@@ -14,14 +14,15 @@ export const myForm =  {
 export const validationSchema = Yup.object().shape({
 
     Username: Yup.string()
-        .min(2, 'Too Short!')
+        .min(4, 'Too Short!')
         .max(16, 'Too Long!')
-        .required('Required'),
+        .required('Required')
+        .matches(/^[a-zA-Z0-9-_]+$/, 'No spaces or special characters allowed'),
     Email: Yup.string().email('Invalid email').required('Required'),
     Password: Yup.string()
         .min(6, 'Too Short!')
-        .max(16, 'Too Long!')
-        .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/, 'Password must contain at least one letter and one number')
+        .max(50, 'Too Long!')
+        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/, 'Password must contain at least one upercase and one lowercase and number')
         .required('Required'),
     "Confirm Password": Yup.string()
         .oneOf([Yup.ref('Password')], 'Passwords must match')
