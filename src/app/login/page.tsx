@@ -61,21 +61,23 @@ function main()
         { online? <Loding/> : <div className='main'>
           <div className='container' >
               <div className='row'>
-          <h1 className='h1logo'>PO<span>ng</span>Master</h1>
-                  
-                
-                <div id='loginBtn'>
-                    <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{
-                      setsign(false)
-                    }}>Sign up</a>
+                  <div className="logo">
+                    <Image src='/Vector.svg' alt="logo" width={50} height={50}/>
+                    <h1>P<span>O</span>NGy</h1>
+                  </div>
+                  <div id='loginBtn'>
+                      <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{
+                        setsign(false)
+                      }}>Sign up</a>
 
-                    <a href='#' className={`${insignin ? 'active_sing' : 'inactive_sing'}`} onClick={()=>{
-                      setsign(true);
-                    }}>Login</a>
-
-                    {insignin? <Signin/> : <Signup/>}
+                      <a href='#' className={`${insignin ? 'active_sing' : 'inactive_sing'}`} onClick={()=>{
+                        setsign(true);
+                      }}>Login</a>
+                      <div>
+                        {insignin ? <Signin/> : <Signup/>}
+                      </div>
+                  </div>
                 </div>
-              </div>
               <div className='row1'>
                   <div id='div-row1'>
                       <div  className='btnAuth' onClick={authIntra}>

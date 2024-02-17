@@ -37,22 +37,14 @@ export default function Signin() {
         });
     }
 
-    const arr = ["Email or Username", "Password"];
-
-    const input = arr.map((item) => {
-        return (
-            <input name={item} key={item} type={item === "Password" ? 'password' : 'text'} className={`input ${error ? 'InputError' : ""}`} autoComplete="none" placeholder={item} />
-        )
-    })
 
     return (
-            <div className='input-container'>
-                <form autoComplete="none">
-                {input}
-                <button id="singbtn" onClick={singRequest}>Sign in</button>
-                {error && <p>Invalid username or password</p>}
-                </form>
-            </div>
+        <form className='input-container'>
+            <input name="Email or Username" type="text" className={`input ${error ? 'InputError' : ""}`}  placeholder="Email or Username"/>
+            <input name="Password" type="password" autoComplete="none" className={`input ${error ? 'InputError' : ""}`}  placeholder="Password" />
+            <button id="singbtn" onClick={singRequest}>Sign in</button>
+            {error && <p className="ErrorMessage">Invalid username or password</p>}
+        </form>
     )
 }
 

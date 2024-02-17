@@ -28,6 +28,8 @@
 
 .bg{
     z-index: -1 ;
+    /* float: left; */
+    background-blend-mode: overlay;
     position: fixed;
     width: 100vw;
     height: 100vh;

@@ -10,6 +10,14 @@ export const myForm =  {
         "Confirm Password": ''
 }
 
+type h = {
+    Username: string,
+    Email: string,
+    Password: string,
+    "Confirm Password": string
+
+}
+
 
 export const validationSchema = Yup.object().shape({
 
