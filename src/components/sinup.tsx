@@ -1,56 +1,65 @@
-import { useState } from "react";
-
-interface ErrorInput {
-    [key: string]: boolean;
-}
-
-interface Inputs{
-    [key: string]: string;
-}
-
+import axios from "axios";
+import { ErrorMessage, useFormik } from "formik";
+import { myForm, validationSchema } from "./Formik/Formik";
 
 export default function Signup() {
     
     const arr: string[] = ["Username", "Email", "Password", "Confirm Password"];
-    
-    
-    const [inputs, setInput] = useState<Inputs>({'Username':'', 'Email':'', 'Password':'', 'Confirm Password':''});
-    const [ErrorInput, setErrorInput] = useState<ErrorInput>({ 'Username': false, 'Email': false, 'Password': false, 'Confirm Password': false });
-    
-    function checkInput(inputs: Inputs)
-    {
-        
-            const hasUppercase = /[A-Z]/.test(inputs['Password']);
-            const isLengthValid = inputs['Password'].length > 10;
-            const hasNumber = /\d/.test(inputs['Password']);
-            const hasLowercase = /[a-z]/.test(inputs['Password']);
+    const formik = useFormik(
+        {
+            initialValues: myForm,
+            validationSchema: validationSchema,
+            onSubmit: (values) => {
+                console.log('onSubmit :',values);
+            }
+        }
+    );
 
-            if (!hasLowercase || !hasNumber || !hasUppercase || !isLengthValid)
-            {
-                setErrorInput({ ...ErrorInput, ['Password']: true });
-                return ;
-            }
-            setErrorInput({ ...ErrorInput, ['Password']: false });
-            if (inputs['Confirm Password'] !== inputs['Password']) {
-                setErrorInput({ ...ErrorInput, ['Confirm Password']: true });
-                return ;
-            }
-            else
-                setErrorInput({ ...ErrorInput, ['Confirm Password']: false });
-    }
+    // const singupRequest =  (e: React.FormEvent<HTMLFormElement>)=>
+    // {
+    //     // console.log(inputs);
+    //     e.preventDefault();
+    //     const formData = new FormData(e.currentTarget);
+    //     const payload = Object.fromEntries(formData);
+    //     // console.log(payload);
+        
+    //     // const data =await axios.post('http://localhost:5000/signup', {
+    //     //     username: inputs['Username']
+    //     //     , email: inputs['Email']
+    //     //     , password: inputs['Password']
+    //     //     // firstName: inputs['Username']
+    //     // }, {
+    //     //    withCredentials: true
+    //     // });
+    //     // console.log(data);
+    // }
+
+    console.log(formik.errors);
 
     let input = arr.map((item: string) => {
-        return <input name={item}  autoComplete="off" key={item} className={`input ${ErrorInput[item] ? "InputError" : ""}`}
-            type="text" placeholder={item}
-            />
+        return (
+            <div key={item}>
+                <input 
+                    value={formik.values[item as keyof typeof myForm] || ''}
+                    onChange={formik.handleChange}
+                    name={item} key={item} className={`input ${formik.errors[item as keyof typeof myForm] && formik.touched[item as keyof typeof myForm]  ? 'InputError' : ''}`}
+                    placeholder={item}
+                    type={item === "Password"  || item === "Confirm Password" ? 'password' : 'text'}
+                    autoComplete={item === "Password"  || item === "Confirm Password" ? 'none' : 'yes'}
+                    onBlur={formik.handleBlur}
+                />
+                {formik.errors[item as keyof typeof myForm] && formik.touched[item as keyof typeof myForm] ? <p className="ErrorMessage">{formik.errors[item as keyof typeof myForm]}</p> : ''}
+            </div>
+        )
     })
 
     return (
         <div className="input-container">
-            {input}
-            <button id="singbtn" className={``}
-                onClick={() => checkInput(inputs)}
-            >Sign up</button>
+            <form onSubmit={formik.handleSubmit}>
+                {input}
+                <button id="singbtn" type="submit" className={``}
+                >Sign up</button>
+            </form>
         </div>
     )
 }

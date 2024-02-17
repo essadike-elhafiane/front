@@ -12,10 +12,12 @@
   "dependencies": {
     "@types/next": "^9.0.0",
     "axios": "^1.6.7",
+    "formik": "^2.4.5",
     "next": "^14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.2",
+    "yup": "^1.3.3"
   },
   "devDependencies": {
     "@types/css-modules": "^1.0.5",

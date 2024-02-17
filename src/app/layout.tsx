@@ -1,3 +1,4 @@
+import BackGround from "@/components/bg"
 
 export const metadata = {
   title: 'pongmaster',
@@ -12,6 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <BackGround/>
         {children}     
       </body>
     </html>

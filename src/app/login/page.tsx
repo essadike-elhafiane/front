@@ -1,31 +1,64 @@
 "use client";
 import '../../style/styles.css'
 import Image from 'next/image';
-// import '../../style/styles copy.css';
 import Signup from '@/components/sinup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/singin';
 import BackGround from '@/components/bg';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { Loding } from '../home/Loding';
 
 async function authIntra()
 {
-    window.location.href = 'http://localhost:3000/api/auth/intra';
+    window.location.href = process.env.NEST_API + '/api/auth/intra';
 }
 
 function authGoogle()
 {
-    window.location.href = 'http://localhost:3000/api/auth/google';
+    window.location.href = process.env.NEST_API + '/api/auth/google';
 }
+
 
 function main()
 {
-    const [insignin, setsign] = useState(true);
-   
+  
+  const router = useRouter(); 
+  const [insignin, setsign] = useState(true);
+  const [online, setonline] = useState(true);
+    
+    useEffect(() => {
+        const getdata = async () => {
+            try {
+                const ApiUrl: string | undefined =  process.env.NEST_API;
+                console.log('ApiUrl:', ApiUrl , process.env);
+                const res = await axios.get(ApiUrl + '/status',
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    withCredentials: true,
+                }
+                );
+                if(res.data)
+                {
+                  if (typeof window !== 'undefined') {
+                    router.push('/');
+                  }
+                }
+            } catch (error) {
+                setonline(false);
+                console.log('Error:', error);
+            } 
+        }
+        getdata();
+    },[online]);
+
     return (
 
         <>
-        <BackGround/>
-        <div className='main'>
+
+        { online? <Loding/> : <div className='main'>
           <div className='container' >
               <div className='row'>
           <h1 className='h1logo'>PO<span>ng</span>Master</h1>
@@ -56,7 +89,7 @@ function main()
                   </div>
               </div>
           </div>
-        </div>
+        </div>}
         </>
     );
 }

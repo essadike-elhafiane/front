@@ -3,6 +3,9 @@
  */
 const nextConfig = {
   output: 'export',
+  env: {
+    NEST_API: process.env.NEST_API,
+  },
   images: {
     unoptimized: true,
   },
