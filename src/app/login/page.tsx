@@ -62,7 +62,7 @@ function main()
           <div className='container' >
               <div className='row'>
                   <div className="logo">
-                    <Image src='/Vector.svg' alt="logo" width={50} height={50}/>
+                    <Image src='./Vector.svg' alt="logo" width={50} height={50}/>
                     <h1>P<span>O</span>NGy</h1>
                   </div>
                   <div id='loginBtn'>
