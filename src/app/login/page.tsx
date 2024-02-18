@@ -1,6 +1,6 @@
 "use client";
 import '../../style/styles.css'
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Signup from '@/components/sinup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/singin';
