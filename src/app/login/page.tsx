@@ -1,6 +1,6 @@
 "use client";
 import '../../style/styles.css'
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Signup from '@/components/sinup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/singin';
@@ -54,46 +54,67 @@ function main()
         getdata();
     },[online]);
 
-    return (
+    return <>
+     { online? <Loding/> : <div className='main'>
+      <div className='container' >
+          <div className='row'>
+              <div className="logo">
+                <Image
+                    src='./Vector.svg'
+                    alt="logo"
+                    width={50}
+                    height={50}
+                    style={{
+                        maxWidth: "100%",
+                        height: "auto"
+                    }} />
+                <h1>P<span>O</span>NGy</h1>
+              </div>
+              <div id='loginBtn'>
+                  <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{
+                    setsign(false)
+                  }}>Sign up</a>
 
-        <>
-         { online? <Loding/> : <div className='main'>
-          <div className='container' >
-              <div className='row'>
-                  <div className="logo">
-                    <Image src='./Vector.svg' alt="logo" width={50} height={50}/>
-                    <h1>P<span>O</span>NGy</h1>
+                  <a href='#' className={`${insignin ? 'active_sing' : 'inactive_sing'}`} onClick={()=>{
+                    setsign(true);
+                  }}>Login</a>
+                  <div>
+                    {insignin ? <Signin/> : <Signup/>}
                   </div>
-                  <div id='loginBtn'>
-                      <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{
-                        setsign(false)
-                      }}>Sign up</a>
-
-                      <a href='#' className={`${insignin ? 'active_sing' : 'inactive_sing'}`} onClick={()=>{
-                        setsign(true);
-                      }}>Login</a>
-                      <div>
-                        {insignin ? <Signin/> : <Signup/>}
-                      </div>
+              </div>
+            </div>
+          <div className='row1'>
+              <div id='div-row1'>
+                  <div  className='btnAuth' onClick={authIntra}>
+                    <Image
+                        src="./intra.png"
+                        alt=""
+                        width={'100'}
+                        height={'100'}
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
+                    <span>Intra</span>
                   </div>
-                </div>
-              <div className='row1'>
-                  <div id='div-row1'>
-                      <div  className='btnAuth' onClick={authIntra}>
-                        <Image src="./intra.png" alt="" width={'100'} height={'100'}/>
-                        <span>Intra</span>
-                      </div>
-                      <div  className='btnAuth' onClick={authGoogle}>
-                        <Image src='./googlelogo.png' alt="" width={'100'} height={'100'}/>
-                        <span>Google</span>
-                      </div>
+                  <div  className='btnAuth' onClick={authGoogle}>
+                    <Image
+                        src='./googlelogo.png'
+                        alt=""
+                        width={'100'}
+                        height={'100'}
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
+                    <span>Google</span>
                   </div>
               </div>
           </div>
-        </div>
-        }
-        </>
-    );
+      </div>
+    </div>
+    }
+    </>;
 }
 
 export default main;

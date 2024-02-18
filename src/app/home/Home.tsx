@@ -1,6 +1,6 @@
 import UserDataContext, { UserData } from "@/components/context";
 import {useContext } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 
@@ -29,18 +29,25 @@ export default function Home() {
         });
     }
     
-    return (
-        <>
+    return <>
+        <div>
+            <h1>Home</h1>
             <div>
-                <h1>Home</h1>
-                <div>
-                    <h1>{data?.userName}</h1>
-                    <h1>{data?.email}</h1>
-                    <h1>{data?.online.toString()}</h1>
-                    <Image src={data?.image?.toString() ?? './Pong.png'} alt="profile" priority={true} width={100} height={100}/>
-                </div>
-                <button onClick={() => {Logout()}}>Logout</button>
+                <h1>{data?.userName}</h1>
+                <h1>{data?.email}</h1>
+                <h1>{data?.online.toString()}</h1>
+                <Image
+                    src={data?.image?.toString() ?? './Pong.png'}
+                    alt="profile"
+                    priority={true}
+                    width={100}
+                    height={100}
+                    style={{
+                        maxWidth: "100%",
+                        height: "auto"
+                    }} />
             </div>
-        </>
-    );
+            <button onClick={() => {Logout()}}>Logout</button>
+        </div>
+    </>;
 }
