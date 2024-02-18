@@ -4,14 +4,14 @@ import * as Yup from 'yup'
 
 
 export const myForm =  {
-        Username: '',
+        userName: '',
         Email: '',
         Password: '',
         "Confirm Password": ''
 }
 
 type h = {
-    Username: string,
+    userName: string,
     Email: string,
     Password: string,
     "Confirm Password": string
@@ -21,7 +21,7 @@ type h = {
 
 export const validationSchema = Yup.object().shape({
 
-    Username: Yup.string()
+    userName: Yup.string()
         .min(4, 'Too Short!')
         .max(16, 'Too Long!')
         .required('Required')
@@ -30,7 +30,9 @@ export const validationSchema = Yup.object().shape({
     Password: Yup.string()
         .min(6, 'Too Short!')
         .max(50, 'Too Long!')
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/, 'Password must contain at least one upercase and one lowercase and number')
+        .matches(/[a-z]/, 'Needs a lowercase letter')
+        .matches(/[A-Z]/, 'Needs a uppercase letter')
+        .matches(/[0-9]/, 'Needs a number')
         .required('Required'),
     "Confirm Password": Yup.string()
         .oneOf([Yup.ref('Password')], 'Passwords must match')

@@ -22,11 +22,11 @@ function authGoogle()
 
 function main()
 {
-  
   const router = useRouter(); 
   const [insignin, setsign] = useState(true);
   const [online, setonline] = useState(true);
-    
+  const [updated, setUpated] = useState(false);
+
     useEffect(() => {
         const getdata = async () => {
             try {
@@ -57,8 +57,7 @@ function main()
     return (
 
         <>
-
-        { online? <Loding/> : <div className='main'>
+         { online? <Loding/> : <div className='main'>
           <div className='container' >
               <div className='row'>
                   <div className="logo">
@@ -91,7 +90,8 @@ function main()
                   </div>
               </div>
           </div>
-        </div>}
+        </div>
+        }
         </>
     );
 }

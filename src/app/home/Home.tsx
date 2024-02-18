@@ -37,7 +37,7 @@ export default function Home() {
                     <h1>{data?.userName}</h1>
                     <h1>{data?.email}</h1>
                     <h1>{data?.online.toString()}</h1>
-                    <Image src={data?.image.toString() ?? ''} alt="profile" priority={true} width={100} height={100}/>
+                    <Image src={data?.image?.toString() ?? './Pong.png'} alt="profile" priority={true} width={100} height={100}/>
                 </div>
                 <button onClick={() => {Logout()}}>Logout</button>
             </div>
