@@ -18,7 +18,7 @@ export default function RootLayout({
         {/* <BackGround/> */}
         <div className='bg'>
             <Image
-                src="./s.svg"
+                src="./Backgroundimage.svg"
                 alt="PongMaster"
                 priority={true}
                 fill

@@ -87,7 +87,7 @@ function main()
               <div id='div-row1'>
                   <div  className='btnAuth' onClick={authIntra}>
                     <Image
-                        src="./intra.png"
+                        src="./IntraLogo.svg"
                         alt=""
                         width={'100'}
                         height={'100'}
@@ -99,7 +99,7 @@ function main()
                   </div>
                   <div  className='btnAuth' onClick={authGoogle}>
                     <Image
-                        src='./googlelogo.png'
+                        src='./GoogleLogo.svg'
                         alt=""
                         width={'100'}
                         height={'100'}
