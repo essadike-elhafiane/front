@@ -1,6 +1,4 @@
 import React from 'react';
-import '@/style/chat.css';
-
 
 const Chat = () => {
 
