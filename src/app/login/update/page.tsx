@@ -1,11 +1,11 @@
+import main from "../page";
 import Update from "./Update";
 
 const UpdatePage = () => {
     return (
-        <div>
-            <h1>UpdatePage</h1>
+        <main>
             <Update />
-        </div>
+        </main>
     );
 }
 
