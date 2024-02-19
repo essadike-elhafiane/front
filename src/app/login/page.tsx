@@ -1,5 +1,5 @@
 "use client";
-import '../../style/styles.css'
+import '../../styles/login/styles.css'
 import Image from "next/image";
 import Signup from '@/components/sinup'
 import React, { useEffect, useState } from 'react';

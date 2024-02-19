@@ -1,11 +1,11 @@
 import Image from "next/image";
-import '../style/landingPage.css';
+import '../styles/login/landingPage.css';
 
 export default function BackGround() {
     return (
         <div className='bg'>
             <Image
-                src="./background.jpg"
+                src="./background.svg"
                 alt="PongMaster"
                 priority={true}
                 fill

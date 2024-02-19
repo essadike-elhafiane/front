@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ErrorMessage, useFormik } from "formik";
 import { myForm, validationSchema } from "./Formik/Formik";
-import '@/style/styles.css';
+import '@/styles/login/styles.css';
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 

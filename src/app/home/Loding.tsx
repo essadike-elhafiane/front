@@ -1,5 +1,5 @@
-import '@/style/styles.css';
-import '@/style/loding.css'
+import '@/styles/login/styles.css';
+import '@/styles/login/loding.css'
 
 export const Loding = () => {
   return (
