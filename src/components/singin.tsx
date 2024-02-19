@@ -58,8 +58,8 @@ export default function Signin() {
 
     return (
         <form className='input-container' onSubmit={singRequest}>
-            <input ref={inputRef} required name="Email or UserName" type="text" className={`input ${error ? 'InputError' : ""}`}  placeholder="Email or UserName"/>
-            <input required name="Password" type="password" autoComplete="none" className={`input ${error ? 'InputError' : ""}`}  placeholder="Password" />
+            <input ref={inputRef} name="Email or UserName" type="text" className={`input ${error ? 'InputError' : ""}`}  placeholder="Email or UserName"/>
+            <input name="Password" type="password" autoComplete="none" className={`input ${error ? 'InputError' : ""}`}  placeholder="Password" />
             {error && <p className="ErrorMessage">Invalid userName or password</p>}
             <button type="submit" id="singbtn">Sign in</button>
         </form>

@@ -35,9 +35,9 @@ export default function Signup() {
                 case "email":
                     formik.setErrors({ Email: 'Email is already used' });
                     break;
-                default:
-                    alert("Something went wrong");
-                    break;
+                // default:
+                //     alert("Something went wrong");
+                //     break;
             }
         }
     }
