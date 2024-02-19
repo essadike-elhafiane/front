@@ -37,7 +37,7 @@ export default function Home() {
                 <h1>{data?.email}</h1>
                 <h1>{data?.online.toString()}</h1>
                 <Image
-                    src={data?.image?.toString() ?? './Pong.png'}
+                    src={data?.image?.toString() ?? './defaultImg.svg'}
                     alt="profile"
                     priority={true}
                     width={100}

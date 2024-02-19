@@ -1,4 +1,4 @@
-// import BackGround from "@/components/bg"
+import BackGround from "@/components/bg"
 import Image from "next/image";
 import '../styles/login/landingPage.css';
 
@@ -15,18 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <BackGround/> */}
-        <div className='bg'>
-            <Image
-                src="./Backgroundimage.svg"
-                alt="PongMaster"
-                priority={true}
-                fill
-                sizes="100vw"
-                style={{
-                    objectFit: "cover",
-                }} />
-         </div>
+        <BackGround/>
+        
+         <h1>fsdfsdf</h1>
         {children}     
       </body>
     </html>

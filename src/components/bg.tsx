@@ -5,8 +5,8 @@ export default function BackGround() {
     return (
         <div className='bg'>
             <Image
-                src="./background.svg"
-                alt="PongMaster"
+                src="/Backgroundimage.svg"
+                alt="Pongy"
                 priority={true}
                 fill
                 sizes="100vw"
