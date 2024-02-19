@@ -4,7 +4,7 @@ import Image from "next/image";
 import Signup from '@/components/sinup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/singin';
-import BackGround from '@/components/bg';
+// import BackGround from '@/components/bg';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Loding } from '../home/Loding';

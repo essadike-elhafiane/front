@@ -1,4 +1,6 @@
-import BackGround from "@/components/bg"
+// import BackGround from "@/components/bg"
+import Image from "next/image";
+import '../styles/login/landingPage.css';
 
 export const metadata = {
   title: 'PONGy',
@@ -13,7 +15,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <BackGround/>
+        {/* <BackGround/> */}
+        <div className='bg'>
+            <Image
+                src="./background.jpg"
+                alt="PongMaster"
+                priority={true}
+                fill
+                sizes="100vw"
+                style={{
+                    objectFit: "cover",
+                }} />
+         </div>
         {children}     
       </body>
     </html>
