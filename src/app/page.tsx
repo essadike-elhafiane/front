@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
-import '../style/landingPage.css';
+import '../styles/login/landingPage.css';
 // import BackGround from '@/components/bg';
 import axios from 'axios';
 import UserDataContext, { UserData } from '@/components/context';
