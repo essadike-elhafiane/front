@@ -3,7 +3,7 @@ import '../style/landingPage.css';
 
 export default function BackGround() {
     return (
-        <div className='bg'>
+        // <div className='bg'>
             <Image
                 src="./background.jpg"
                 alt="PongMaster"
@@ -13,6 +13,6 @@ export default function BackGround() {
                 style={{
                     objectFit: "cover"
                 }} />
-        </div>
+        // </div>
     );
 }
