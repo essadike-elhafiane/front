@@ -10,13 +10,13 @@ import BackGround from "@/components/bg"
 
 const UpdatePage = () => {
 
-    const [imageSrc, setImageSrc] = useState("./../defaultImg.svg");
+    const [imageSrc, setImageSrc] = useState("./defaultImg.svg");
     const [file, setFile] = useState<File | null>(null);
     const router = useRouter();
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event?.target?.files?.[0];
-        setImageSrc(file ? URL.createObjectURL(file) : "./../defaultImg.svg");
+        setImageSrc(file ? URL.createObjectURL(file) : "./defaultImg.svg");
         setFile(file || null);
     };
     const sendImg = () => {
@@ -59,7 +59,7 @@ const UpdatePage = () => {
                         objectFit: "cover",
                     }
                 } width={100} height={100} priority={true} />
-                <Image className='img' src="./../update.svg" alt="upload" width={10} height={10} priority={true} />
+                <Image className='img' src="./update.svg" alt="upload" width={10} height={10} priority={true} />
                 <label htmlFor="ImageInput" className="input-image" >
                     Choose an Image
                 </label>
