@@ -6,6 +6,7 @@ import axios from 'axios';
 import UserDataContext, { UserData } from '@/components/context';
 import Home from './home/Home';
 import { Loding } from './home/Loding';
+import BackGround from '@/components/bg';
 
 // console.log('ApiUrl:', ApiUrl);
 
@@ -41,6 +42,7 @@ export default function landingPage()
     
     return (
         <>
+            <BackGround/>
             <UserDataContext.Provider value={data}>
             {data? <Home/> : <Loding/>}
             </UserDataContext.Provider>
