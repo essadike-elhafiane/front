@@ -66,7 +66,6 @@ function main()
                     height={50}
                     style={{
                         maxWidth: "100%",
-                        height: "auto"
                     }} />
                 <h1>P<span>O</span>NGy</h1>
               </div>

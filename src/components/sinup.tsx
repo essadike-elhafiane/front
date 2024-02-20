@@ -97,7 +97,10 @@ export default function Signup() {
                 {formik.errors.Password && formik.touched.Password ? <p className="ErrorMessage">{formik.errors.Password}</p> : ''}
                 <input value={formik.values["Confirm Password"]} onChange={formik.handleChange} name="Confirm Password" key="Confirm Password" className={`input ${formik.errors["Confirm Password"] && formik.touched["Confirm Password"] ? 'InputError' : ''}`} placeholder="Confirm Password" type="password" autoComplete="none" onBlur={formik.handleBlur}/>
                 {formik.errors["Confirm Password"] && formik.touched["Confirm Password"] ? <p className="ErrorMessage">{formik.errors["Confirm Password"]}</p> : ''}
+                
+                
                 <button id="singbtn" type="submit">Sign up</button>
+                
             </form>
     )
 }

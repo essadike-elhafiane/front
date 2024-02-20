@@ -1,5 +1,4 @@
 import BackGround from "@/components/bg"
-import Image from "next/image";
 import '../styles/login/landingPage.css';
 
 export const metadata = {
