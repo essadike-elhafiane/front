@@ -26,7 +26,7 @@ export default function Signin() {
                 password: (document.getElementsByName("Password")[0] as HTMLInputElement).value
             };
             try {
-                const response = await fetch('http://localhost:3000/singin', {
+                const response = await fetch(process.env.NEST_API + '/singin', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

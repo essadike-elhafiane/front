@@ -19,7 +19,7 @@ export default function landingPage()
         const getdata = async () => {
             try {
                 const ApiUrl =  process.env.NEST_API;
-                console.log('ApiUrl:', ApiUrl, process.env);
+                // console.log('ApiUrl:', ApiUrl, process.env);
                 console.log('Success:', ApiUrl+ '/status');
                 const res = await axios.get(ApiUrl + '/status',
                 {
@@ -32,12 +32,10 @@ export default function landingPage()
                 setData(res.data);
                 } catch (error) {
                     console.log('Error:', error);
-                    window.location.href = '/login';
+                    // window.location.href = '/login';
                 }
         }
-        setTimeout(() => {
-            getdata();
-        }, 0)
+        getdata();
     },[]);
     
     return (
