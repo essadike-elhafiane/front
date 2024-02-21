@@ -24,10 +24,10 @@ export default function Signup() {
             }, {
                 withCredentials: true
             });
-            console.log(response.data);
+            //console.log(response.data);
             router.push('/');
         } catch (error: any) {
-            console.error(error?.response?.data?.target);
+            //console.error(error?.response?.data?.target);
             switch (error?.response?.data?.target) {
                 case "userName":
                     formik.setErrors({ userName: 'userName is already used' });
@@ -52,11 +52,11 @@ export default function Signup() {
 
     // const singupRequest =  (e: React.FormEvent<HTMLFormElement>)=>
     // {
-    //     // console.log(inputs);
+    //     // //console.log(inputs);
     //     e.preventDefault();
     //     const formData = new FormData(e.currentTarget);
     //     const payload = Object.fromEntries(formData);
-    //     // console.log(payload);
+    //     // //console.log(payload);
         
     //     // const data =await axios.post('http://localhost:5000/signup', {
     //     //     userName: inputs.userName
@@ -66,10 +66,10 @@ export default function Signup() {
     //     // }, {
     //     //    withCredentials: true
     //     // });
-    //     // console.log(data);
+    //     // //console.log(data);
     // }
 
-    // console.log(formik.errors);
+    // //console.log(formik.errors);
 
     // let input = arr.map((item: string) => {
     //     return (

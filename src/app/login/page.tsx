@@ -32,7 +32,7 @@ function main()
         const getdata = async () => {
             try {
                 const ApiUrl: string | undefined =  process.env.NEST_API;
-                console.log('ApiUrl:', ApiUrl , process.env);
+                //console.log('ApiUrl:', ApiUrl , process.env);
                 const res = await axios.get(ApiUrl + '/status',
                 {
                     headers: {
@@ -49,7 +49,7 @@ function main()
                 }
             } catch (error) {
                 setonline(false);
-                console.log('Error:', error);
+                //console.log('Error:', error);
             } 
         }
         getdata();

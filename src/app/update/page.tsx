@@ -39,11 +39,11 @@ const UpdatePage = () => {
                 router.push('/');
             })
             .then(data => {
-                console.log('Success:', data);
+                //console.log('Success:', data);
                 router.push('/');
             })
             .catch((error) => {
-                // console.error('Error:', error);
+                // //console.error('Error:', error);
             });
         }
     }

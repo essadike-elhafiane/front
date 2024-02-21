@@ -17,17 +17,17 @@ export default function Signin() {
     function singRequest(e: React.FormEvent<HTMLFormElement>)
     {
         e.preventDefault();
-        console.log('singRequest');
+        //console.log('singRequest');
         const f = async () => {
             e.preventDefault();
-            console.log('singRequest');
+            //console.log('singRequest');
             const data = {
                 userName: (document.getElementsByName("Email or UserName")[0] as HTMLInputElement).value,
                 email: (document.getElementsByName("Email or UserName")[0] as HTMLInputElement).value,
                 password: (document.getElementsByName("Password")[0] as HTMLInputElement).value
             };
             try {
-                const response = await axios.post(process.env.NEST_API + '/signin',JSON.stringify(data), {
+                const response = await axios.post(process.env.NEST_API + '/signin', JSON.stringify(data) , {
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -40,13 +40,13 @@ export default function Signin() {
                 } else {
                     router.push('/');
                     e.currentTarget?.reset();
-                    console.log('Success:', e?.currentTarget);
+                    //console.log('Success:', e?.currentTarget);
                 }
             } catch (error) {
                 setError(true);
                 // e.currentTarget.reset();
                 // router.push('/login');
-                console.error('Error:', error);
+                //console.error('Error:', error);
             }
         }
         f();

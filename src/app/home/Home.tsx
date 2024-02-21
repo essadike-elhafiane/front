@@ -23,12 +23,12 @@ export default function Home() {
                 withCredentials: true,
             })
             if(res.data){
-                // console.log('Success:', data);
+                // //console.log('Success:', data);
                 router.push('/login');
             }
         }
         catch (error) {
-            console.error('Error:', error);
+            //console.error('Error:', error);
         };
     }
     

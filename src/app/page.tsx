@@ -14,12 +14,13 @@ export default function landingPage()
     const [data, setData] = useState<UserData | null>(null);
     
     const router = useRouter();
-    useEffect(() => {
-        const getdata = async () => {
+
+        useEffect(() => {
+    const getdata = async () => {
             try {
                 const ApiUrl =  process.env.NEST_API;
-                // console.log('ApiUrl:', ApiUrl, process.env);
-                console.log('Success:', ApiUrl+ '/status');
+                // //console.log('ApiUrl:', ApiUrl, process.env);
+                //console.log('Success:', ApiUrl+ '/status');
                 const res = await axios.get(ApiUrl + '/status',
                 {
                     headers: {
@@ -28,10 +29,15 @@ export default function landingPage()
                     withCredentials: true,
                 }
                 );
-                setData(res.data);
+                if (res.data === undefined || res.data === false || res.data === null) {
+                    //console.log('Error:', res.data);
+                    router.push('/login');
+                }
+                else
+                    setData(res.data);
                 } catch (error) {
-                    console.log('Error:', error);
-                    // router.push('/login');
+                    //console.log('Error:', error);
+                    router.push('/login');
                 }
         }
         getdata();
