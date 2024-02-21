@@ -1,4 +1,5 @@
 "use client";
+"use strict";
 import '../../styles/login/styles.css'
 import Image from "next/image";
 import Signup from '@/components/sinup'
@@ -52,7 +53,7 @@ function main()
             } 
         }
         getdata();
-    },[online]);
+    },[]);
 
     return <>
      { online? <Loding/> : <div className='main'>

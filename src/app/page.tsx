@@ -1,4 +1,5 @@
 "use client";
+"use strict";
 import { useEffect, useState } from 'react';
 import '../styles/login/landingPage.css';
 import axios from 'axios';
