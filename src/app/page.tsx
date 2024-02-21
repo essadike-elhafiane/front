@@ -31,7 +31,7 @@ export default function landingPage()
                 setData(res.data);
                 } catch (error) {
                     console.log('Error:', error);
-                    router.push('/login');
+                    // router.push('/login');
                 }
         }
         getdata();
@@ -39,7 +39,6 @@ export default function landingPage()
     
     return (
         <>
-            <BackGround/>
             <UserDataContext.Provider value={data}>
             {data? <Home/> : <Loding/>}
             </UserDataContext.Provider>

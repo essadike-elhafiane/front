@@ -2,6 +2,7 @@ import UserDataContext, { UserData } from "@/components/context";
 import {useContext } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 
 
@@ -12,23 +13,23 @@ export default function Home() {
     const data: UserData | null = useContext(UserDataContext);
     const router = useRouter();
 
-    function Logout()
+    async function Logout()
     {
-        fetch(process.env.NEST_API + '/logout', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            router.push('/login');
-        })
-        .catch((error) => {
+        try{
+            const res = await axios.get(process.env.NEST_API + '/logout', {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                withCredentials: true,
+            })
+            if(res.data){
+                // console.log('Success:', data);
+                router.push('/login');
+            }
+        }
+        catch (error) {
             console.error('Error:', error);
-        });
+        };
     }
     
     return <>

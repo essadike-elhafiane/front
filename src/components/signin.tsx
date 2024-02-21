@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -26,19 +27,15 @@ export default function Signin() {
                 password: (document.getElementsByName("Password")[0] as HTMLInputElement).value
             };
             try {
-                const response = await fetch(process.env.NEST_API + '/singin', {
-                    method: 'POST',
+                const response = await axios.post(process.env.NEST_API + '/signin',JSON.stringify(data), {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    credentials: 'include',
-                    body: JSON.stringify(data)
+                    withCredentials: true,
+                    // body: JSON.stringify(data)
                 });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const responseData = await response.json();
-                if (responseData.login === undefined) {
+                const responseData = response.data;
+                if (responseData.login === undefined || responseData.login === false || responseData.login === null) {
                     setError(true);
                 } else {
                     router.push('/');
