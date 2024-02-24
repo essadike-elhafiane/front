@@ -15,9 +15,11 @@ async function authIntra()
     window.location.href = process.env.NEST_API + '/api/auth/intra';
 }
 
-function authGoogle()
+async function authGoogle()
 {
-    window.location.href = process.env.NEST_API + '/api/auth/google';
+  // const res = await axios.get(process.env.NEST_API + '/api/auth/google');
+  // console.log('res:', res);
+  window.location.href = process.env.NEST_API + '/api/auth/google';
 }
 
 
@@ -32,6 +34,8 @@ function main()
         const getdata = async () => {
             try {
                 const ApiUrl: string | undefined =  process.env.NEST_API;
+                const cookie = document.cookie;
+                console.log('Cookie:', cookie);
                 //console.log('ApiUrl:', ApiUrl , process.env);
                 const res = await axios.get(ApiUrl + '/status',
                 {
@@ -85,7 +89,9 @@ function main()
             </div>
           <div className='row1'>
               <div id='div-row1'>
-                  <div  className='btnAuth' onClick={authIntra}>
+                  <div  className='btnAuth' onClick={()=>{
+                    router.push(process.env.NEST_API + '/api/auth/intra');
+                  }}>
                     <Image
                         src="./IntraLogo.svg"
                         alt=""
