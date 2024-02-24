@@ -19,39 +19,37 @@ export default function landingPage()
     const getdata = async () => {
             try {
                 const ApiUrl =  process.env.NEST_API;
-                const jwt = sessionStorage.getItem('jwt');
                 // //console.log('ApiUrl:', ApiUrl, process.env);
                 //console.log('Success:', ApiUrl+ '/status');
                 const res = await axios.get(ApiUrl + '/status',
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + jwt,
                     },
                     withCredentials: true,
                 }
                 );
                 if (res.data === undefined || res.data === false || res.data === null) {
                     //console.log('Error:', res.data);
-                    // router.push('/login');
+                    router.push('/login');
                 }
                 else
                     setData(res.data);
                 } catch (error) {
                     //console.log('Error:', error);
-                    // router.push('/login');
+                    router.push('/login');
                 }
         }
         getdata();
     },[]);
 
-    useEffect(() => {
-        const jwt = window.location.hash.split('=')[1];
-        if (jwt) {
-            sessionStorage.setItem('jwt', jwt); // Consider more secure storage options
-            window.location.hash = '';
-        }
-    }, []);
+    // useEffect(() => {
+    //     const jwt = window.location.hash.split('=')[1];
+    //     if (jwt) {
+    //         sessionStorage.setItem('jwt', jwt); // Consider more secure storage options
+    //         window.location.hash = '';
+    //     }
+    // }, []);
     
     return (
         <>
