@@ -47,9 +47,10 @@ export default function landingPage()
 
     useEffect(() => {
         const jwt = window.location.hash.split('=')[1];
+        const router = useRouter();
         if (jwt) {
             sessionStorage.setItem('jwt', jwt); // Consider more secure storage options
-            window.location.hash = ''; // Clean up the URL
+            router.push('/');
         }
     }, []);
     
