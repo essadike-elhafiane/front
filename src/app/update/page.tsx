@@ -53,7 +53,7 @@ const UpdatePage = () => {
         <BackGround/>
         <main className="main">
             <div className="container-upadte">
-                <Image className='UpdatedPhoto' src={imageSrc} alt="Pongy" style={
+                {/* <Image className='UpdatedPhoto' src={imageSrc} alt="Pongy" style={
                     {
                         borderRadius: "50%",
                         objectFit: "cover",
@@ -62,7 +62,7 @@ const UpdatePage = () => {
                 <Image className='img' src="./update.svg" alt="upload" width={10} height={10} priority={true} />
                 <label htmlFor="ImageInput" className="input-image" >
                     Choose an Image
-                </label>
+                </label> */}
                 <input name='image' type="file" id="ImageInput" onChange={handleFileChange} accept="image/*"/>
                 <input name='userName' className='input-update' type="text" placeholder="Username" />
                 <input name='firstName' className='input-update' type="text" placeholder="firstName" />

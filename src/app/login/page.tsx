@@ -2,7 +2,7 @@
 "use strict";
 import '../../styles/login/styles.css'
 import Image from "next/image";
-import Signup from '@/components/sinup'
+import Signup from '@/components/signup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/signin';
 // import BackGround from '@/components/bg';
@@ -48,7 +48,10 @@ function main()
                 if(res.data)
                 {
                   if (typeof window !== 'undefined') {
-                    router.push('/');
+                    if(res.data.updated)
+                      router.push('/');
+                    else
+                      setUpated(false);
                   }
                 }
             } catch (error) {

@@ -6,9 +6,8 @@ import axios from 'axios';
 import UserDataContext, { UserData } from '@/components/context';
 import Home from './home/Home';
 import { Loding } from './home/Loding';
-
 import { useRouter } from 'next/navigation';
-import cookie from 'cookie';
+
 
 export default function landingPage()
 {
@@ -20,16 +19,11 @@ export default function landingPage()
     const getdata = async () => {
             try {
                 const ApiUrl = process.env.NEST_API;
-
-                console.log();
-                const jwt = cookie.parse(document.cookie).jwt;
-                console.log('jwt:', jwt);
                 // //console.log('ApiUrl:', ApiUrl, process.env);
                 //console.log('Success:', ApiUrl+ '/status');
                 const res = await axios.get(ApiUrl + '/status', {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${jwt}`,
                     },
                     withCredentials: true,
                 });
