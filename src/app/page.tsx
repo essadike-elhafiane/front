@@ -6,7 +6,7 @@ import axios from 'axios';
 import UserDataContext, { UserData } from '@/components/context';
 import Home from './home/Home';
 import { Loding } from './home/Loding';
-import BackGround from '@/components/bg';
+
 import { useRouter } from 'next/navigation';
 
 export default function landingPage()
@@ -47,10 +47,9 @@ export default function landingPage()
 
     useEffect(() => {
         const jwt = window.location.hash.split('=')[1];
-        const router = useRouter();
         if (jwt) {
             sessionStorage.setItem('jwt', jwt); // Consider more secure storage options
-            router.push('/');
+            window.location.hash = '';
         }
     }, []);
     
