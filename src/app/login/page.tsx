@@ -34,13 +34,13 @@ function main()
         const getdata = async () => {
             try {
                 const ApiUrl: string | undefined =  process.env.NEST_API;
-                const cookie = document.cookie;
-                console.log('Cookie:', cookie);
                 //console.log('ApiUrl:', ApiUrl , process.env);
+                const jwt = sessionStorage.getItem('jwt');
                 const res = await axios.get(ApiUrl + '/status',
                 {
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + jwt,
                     },
                     withCredentials: true,
                 }

@@ -16,9 +16,11 @@ export default function Home() {
     async function Logout()
     {
         try{
+            const jwt = sessionStorage.getItem('jwt');
             const res = await axios.get(process.env.NEST_API + '/logout', {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + jwt,
                 },
                 withCredentials: true,
             })
@@ -30,6 +32,7 @@ export default function Home() {
         catch (error) {
             //console.error('Error:', error);
         };
+        sessionStorage.removeItem('jwt');
     }
     
     return <>
