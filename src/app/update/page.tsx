@@ -51,7 +51,7 @@ const UpdatePage = () => {
 
     return (
 <>
-    <BackGround/>
+    {/* <BackGround/> */}
     <main className="main">
         <div className="update-container">
             <div className="logo">
