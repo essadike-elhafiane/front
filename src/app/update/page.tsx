@@ -1,5 +1,4 @@
 "use client"
-
 import React from 'react';
 import '@/styles/login/styles.css'
 import '@/styles/update/update.css'
@@ -7,6 +6,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import BackGround from "@/components/bg"
+import UpdateForm from './UpdateForm';
 
 const UpdatePage = () => {
 
@@ -19,6 +19,7 @@ const UpdatePage = () => {
         setImageSrc(file ? URL.createObjectURL(file) : "./defaultImg.svg");
         setFile(file || null);
     };
+
     const sendImg = () => {
         if (file) {
             const formData = new FormData();
@@ -49,31 +50,42 @@ const UpdatePage = () => {
     }
 
     return (
-        <>
-        <BackGround/>
-        <main className="main">
-            <div className="container-upadte">
-                {/* <Image className='UpdatedPhoto' src={imageSrc} alt="Pongy" style={
-                    {
-                        borderRadius: "50%",
-                        objectFit: "cover",
-                    }
-                } width={100} height={100} priority={true} />
-                <Image className='img' src="./update.svg" alt="upload" width={10} height={10} priority={true} />
-                <label htmlFor="ImageInput" className="input-image" >
-                    Choose an Image
-                </label> */}
-                <input name='image' type="file" id="ImageInput" onChange={handleFileChange} accept="image/*"/>
-                <input name='userName' className='input-update' type="text" placeholder="Username" />
-                <input name='firstName' className='input-update' type="text" placeholder="firstName" />
-                <input name='lastName' className='input-update' type="text" placeholder="lastName" />
-                <input name='password' className='input-update' type="password" placeholder="Password" />
-                <input name='Confirm Password' className='input-update' type="password" placeholder="Confirm Password" />
-                <button className="input-button" onClick={sendImg} >Update</button>
+<>
+    <BackGround/>
+    <main className="main">
+        <div className="update-container">
+            <div className="logo">
+                <Image
+                    src='./Vector.svg'
+                    alt="logo"
+                    width={50}
+                    height={50}
+                    style={{
+                        maxWidth: "100%",
+                    }} />
+                <h1>P<span>O</span>NGy</h1>
             </div>
-        </main>
-        </>
-    );
+            <h1 id="Laststeps">Last steps</h1>
+            <div className='update-row'>
+                <UpdateForm/>
+                <div className='update-row-image'>
+                    <Image className='UpdatedPhoto' src={imageSrc} alt="Pongy" style={
+                        {
+                            borderRadius: "50%",
+                            objectFit: "cover",
+                        }
+                    } width={100} height={100} priority={true} />
+                    <Image className='updateLogo' src="./update.svg" alt="upload" width={10} height={10} priority={true} />
+                    <input type="file" id="ImageInput" onChange={handleFileChange} style={{ display: "none" }} />
+                    <label htmlFor="ImageInput" className="update-botton" >
+                        Update
+                    </label>
+                </div>
+            </div>    
+        </div>
+    </main>
+</>
+);
 
 }
 

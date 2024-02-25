@@ -1,5 +1,6 @@
 import Image from "next/image";
-import '../styles/login/landingPage.css';
+import '@/styles/login/landingPage.css';
+// import '@/styles/globals.css';
 
 export default function BackGround() {
     return (
@@ -9,6 +10,7 @@ export default function BackGround() {
                 alt="background"
                 priority={true}
                 fill
+                className="bgImage"
                 sizes="100vw"
                 style={{
                     objectFit: "cover",

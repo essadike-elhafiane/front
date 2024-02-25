@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 
 const UpdateForm = () => {
 
-    const router = useRouter();
     const sendUpdateRequest = async (values: typeof updateForm) => {
+        const router = useRouter();
         try {
             const response = await axios.post(process.env.NEST_API + '/update', {
                 userName: values.userName,
@@ -50,7 +50,7 @@ const UpdateForm = () => {
                 autoComplete="none" onBlur={formik.handleBlur}
              /> 
             {formik.errors["Confirm Password"] && formik.touched["Confirm Password"] ? <p className="ErrorMessage">{formik.errors["Confirm Password"]}</p> : ''}
-            <button id="singbtn" type="submit">Update</button>
+            <button id="singbtn" type="submit">Confirm</button>
         </form>
     );
 }

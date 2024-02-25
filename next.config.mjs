@@ -9,6 +9,9 @@ const nextConfig = {
       env: {
         NEST_API: process.env.NEST_API,
       },
+      future: {
+        webpack5: true,
+      },
     // output: 'export',
     // images: { unoptimized: true } 
 }

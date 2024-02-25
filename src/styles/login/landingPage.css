@@ -87,6 +87,9 @@ nav{
     object-fit: cover;
 }
 
+.bgImage{
+    filter: saturate(75%);
+}
 /* .container{
     display: flex;
     height: auto;
