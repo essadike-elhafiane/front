@@ -52,6 +52,7 @@ const UpdatePage = () => {
     //         });
     //     }
     // }
+   
 
     return (
     <>
@@ -70,9 +71,9 @@ const UpdatePage = () => {
             </div>
             <h1 id="Laststeps">Last steps</h1>
             <div className='update-row'>
-                <UpdateForm file={file} />
 
-                
+                <UpdateForm file={file}/>
+
                 <div className='update-row-image'>
                     <Image className='UpdatedPhoto' src={imageSrc} alt="Pongy" style={
                         {

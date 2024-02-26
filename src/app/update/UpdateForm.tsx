@@ -8,13 +8,13 @@ import React from "react";
 
 
 interface UpdateFormProps {
-    file: File;
+    file: File | null;
 }
 
 const UpdateForm = (props: UpdateFormProps) => {
 
     // const router = useRouter();
-    const file: File = props.file;
+    const file: File | null = props.file;
     // console.log('props: ', props);
     const context = React.useContext(UpdateUserData);
     // console.log('context: ', context?.userName);
@@ -26,9 +26,10 @@ const UpdateForm = (props: UpdateFormProps) => {
     
     const sendUpdateRequest = async (values: typeof updateForm) => {
         console.log('values: ', values);
+        
         try {
             const formData = new FormData();
-            formData.append("file", file);
+            formData.append("file", file? file : new File([""], "defaultImg.svg"));
             formData.append("userName", values.userName);
             formData.append("Password", values.Password);
             const response = await axios.put(process.env.NEST_API + '/update',
