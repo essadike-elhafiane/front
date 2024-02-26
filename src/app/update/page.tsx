@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import BackGround from "@/components/bg"
 import UpdateForm from './UpdateForm';
+// import '@/styles/globals.css';
 
 const UpdatePage = () => {
 
@@ -50,8 +51,7 @@ const UpdatePage = () => {
     }
 
     return (
-<>
-    {/* <BackGround/> */}
+    <>
     <main className="main">
         <div className="update-container">
             <div className="logo">
@@ -84,9 +84,8 @@ const UpdatePage = () => {
             </div>    
         </div>
     </main>
-</>
-);
-
+    </>
+    );
 }
 
 export default UpdatePage;

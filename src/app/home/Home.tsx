@@ -5,10 +5,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 
 
-
-
-
-
 export default function Home() {
     const data: UserData | null = useContext(UserDataContext);
     const router = useRouter();
@@ -36,7 +32,9 @@ export default function Home() {
     }
     
     return <>
+        
         <div>
+
             <h1>Home</h1>
             <div>
                 <h1>{data?.userName}</h1>

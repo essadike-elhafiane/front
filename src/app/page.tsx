@@ -7,7 +7,7 @@ import UserDataContext, { UserData } from '@/components/context';
 import Home from './home/Home';
 import { Loding } from './home/Loding';
 import { useRouter } from 'next/navigation';
-import '@/styles/globals.css';
+// import '@/styles/globals.css';
 
 export default function landingPage()
 {
@@ -55,6 +55,6 @@ export default function landingPage()
             {data? <Home/> : <Loding/>}
             </UserDataContext.Provider>
         </>
-        );
+    );
 }
 // req.password

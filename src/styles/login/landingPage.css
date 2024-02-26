@@ -48,48 +48,7 @@ nav{
 }
 
 
-.logoContainer{
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-}
 
-.logoContainer img{
-    width: 100px;
-    height: 100px;
-}
-
-.logoContainer h1{
-    font-size: 1.5em;
-    margin-left: 10px;
-}
-
-.logoContainer h1 span{
-    color: #0064FB;
-}
-
-.navLinks{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.navLinks a{
-    text-decoration: none;
-    color: white;
-    margin: 0 20px;
-    font-size: 1.2em;
-}
-
-.PongImg{
-    width: 50%;
-    /* height: 50%; */
-    object-fit: cover;
-}
-
-.bgImage{
-    filter: saturate(75%);
-}
 /* .container{
     display: flex;
     height: auto;

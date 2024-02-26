@@ -1,11 +1,10 @@
 "use client";
 "use strict";
-import '../../styles/login/styles.css'
+import '@/styles/login/styles.css'
 import Image from "next/image";
 import Signup from '@/components/signup'
 import React, { useEffect, useState } from 'react';
 import Signin from '@/components/signin';
-// import BackGround from '@/components/bg';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Loding } from '../home/Loding';
@@ -123,7 +122,7 @@ function main()
       </div>
     </div>
     }
-    </>;
+    </>
 }
 
 export default main;

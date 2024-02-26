@@ -51,8 +51,6 @@ export default function Signin() {
         }
         f();
     }
-
-
     return (
         <form className='input-container' onSubmit={singRequest}>
             <input ref={inputRef} name="Email or UserName" type="text" className={`input ${error ? 'InputError' : ""}`}  placeholder="Email or UserName"/>
