@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 
 export default function Signin() {
 
@@ -18,6 +18,7 @@ export default function Signin() {
     {
         e.preventDefault();
         //console.log('singRequest');
+        useEffect(() => {
         const f = async () => {
             e.preventDefault();
             //console.log('singRequest');
@@ -26,6 +27,7 @@ export default function Signin() {
                 email: (document.getElementsByName("Email or UserName")[0] as HTMLInputElement).value,
                 password: (document.getElementsByName("Password")[0] as HTMLInputElement).value
             };
+            
             try {
                 const response = await axios.post(process.env.NEST_API + '/signin', JSON.stringify(data) , {
                     headers: {
@@ -50,6 +52,7 @@ export default function Signin() {
             }
         }
         f();
+        }, []);
     }
     return (
         <form className='input-container' onSubmit={singRequest}>

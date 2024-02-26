@@ -3,13 +3,16 @@ import {useFormik } from "formik";
 import { SignupForm, signupValidationSchema } from "./Formik/Formik";
 import '@/styles/login/styles.css';
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 export default function Signup() {
     const router = useRouter();
 
-    const signupRequest = async (values: typeof SignupForm) => {
+    const signupRequest =  (values: typeof SignupForm) => {
+        useEffect(() => {
         // console.log('valus',values);
+        const signupRequest = async () => {
         try {
             const response = await axios.post(process.env.NEST_API + '/signup', {
                 firstName: values.FirstName,
@@ -38,7 +41,11 @@ export default function Signup() {
                 //     break;
             
         }
+         signupRequest();
+        }
+    }, []);
     }
+
     
     const formik = useFormik(
         {
