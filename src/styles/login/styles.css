@@ -112,7 +112,7 @@
 
 @media (max-height: 750px){
     .main{
-        margin-top: 10px;
+        margin-top: 10%;
         align-items: flex-start;
     }
 }
@@ -306,11 +306,18 @@ h1 span{
     }
 
     .input-container{
+
+        justify-content: center;
+        align-items: center;
         width: 100%;
         font-size: 14px;
         /* background-color: green; */
         padding-bottom: 5px;
         animation: down .5s ease;
+    }
+
+    .input:nth-child(1){
+        margin-left: 20px;
     }
     
     .input{
@@ -318,7 +325,7 @@ h1 span{
         margin-bottom: 5px;
         /* margin-left: 20px; */
         /* margin: 0; */
-        margin-left: 25px;
+        /* margin-left: 25px; */
 
         /* padding: 0; */
     }
@@ -374,20 +381,18 @@ h1 span{
     }
 
     .container{
-        width: 100%;
+        width: 90%;
     }
     .input-container{
-        /* background-color: green; */
         width: 100%;
         margin: 0;
-
     }
     .input{
         width: 80%;
         font-size: 12px;
         margin-bottom: 5px;
         /* margin:0; */
-        margin-left: 6.5%;
+
     }
 }
 
