@@ -20,8 +20,10 @@ export default function Signup() {
                 withCredentials: true
             });
             console.log(response.data);
-            if (response.status === 201)
-            router.push('/');
+            if(response)
+                window.location.reload();
+            else
+                throw new Error('Error');
         } catch (error: any) {
             //console.error(error?.response?.data?.target);
                 console.log(error);

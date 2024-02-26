@@ -31,7 +31,7 @@ export const updateValidationSchema = Yup.object().shape({
     userName: Yup.string()
         .min(4, 'Too Short!')
         .max(16, 'Too Long!')
-        .required('Required')
+        // .required('Required')
         .matches(/^[a-zA-Z0-9-_]+$/, 'No spaces or special characters allowed'),
     Password: Yup.string()
         .min(6, 'Too Short!')

@@ -3,7 +3,7 @@ import '@/styles/login/landingPage.css';
 import bgound from '../../public/Backgroundimage.webp';
 // import '@/styles/globals.css';
 
-export default function BackGround() {
+const BackGround = () => {
     return (
         <div className='bg'>
             <Image
@@ -16,8 +16,10 @@ export default function BackGround() {
                 placeholder="blur"
                 style={{
                     objectFit: 'cover',
-                    filter: 'saturate(0.75)',
+                    filter: 'saturate(0.65)',
                 }} />
          </div>
     );
 }
+
+export default BackGround;

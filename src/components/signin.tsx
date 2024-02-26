@@ -38,13 +38,13 @@ export default function Signin() {
                 if (responseData.login === undefined || responseData.login === false || responseData.login === null) {
                     setError(true);
                 } else {
-                    router.push('/');
-                    e.currentTarget?.reset();
+                    window.location.reload();
+                    // e.currentTarget?.reset();
                     //console.log('Success:', e?.currentTarget);
                 }
             } catch (error) {
                 setError(true);
-                // e.currentTarget.reset();
+                // e.currentTarget?.reset();
                 // router.push('/login');
                 //console.error('Error:', error);
             }

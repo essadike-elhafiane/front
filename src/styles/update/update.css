@@ -128,19 +128,19 @@ input[type="file"] {
     height: 20px;
     z-index: 0;
     margin-top: 20px;
-    animation: slideIn 1.3s ease infinite alternate;
+    animation: slideIn 2.6s ease infinite;
 }
 
 @keyframes slideIn {
   0% {
     transform: translateY(+100%);
   }
-  /* 50%{
+  50%{
     transform: translateY(0%);
-  } */
-  100% {
-    transform: translateY(-220%);
   }
+  /* 100% {
+    transform: translateY(-220%);
+  } */
 }
 
 

@@ -1,23 +1,49 @@
+"use client"
 import { updateForm, updateValidationSchema } from "@/components/Formik/Formik";
 import { useFormik } from "formik";
 import axios from "axios";
 import { useRouter } from "next/router";
+import  UpdateUserData  from "@/components/context/update.context";
+import React from "react";
 
-const UpdateForm = () => {
 
+interface UpdateFormProps {
+    file: File;
+}
+
+const UpdateForm = (props: UpdateFormProps) => {
+
+    // const router = useRouter();
+    const file: File = props.file;
+    // console.log('props: ', props);
+    const context = React.useContext(UpdateUserData);
+    // console.log('context: ', context?.userName);
+    const userName: string | undefined = context?.userName;
+    if (userName) {
+        updateForm.userName = userName;
+    }
+
+    
     const sendUpdateRequest = async (values: typeof updateForm) => {
-        const router = useRouter();
+        console.log('values: ', values);
         try {
-            const response = await axios.post(process.env.NEST_API + '/update', {
-                userName: values.userName,
-                password: values.Password,
-            }, {
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("userName", values.userName);
+            formData.append("Password", values.Password);
+            const response = await axios.put(process.env.NEST_API + '/update',
+                formData  
+            , 
+            {
+                headers: {
+                    'Accept': 'form-data',
+                },
                 withCredentials: true
             });
-            console.log(response.data);
-            if (response.status === 201)
-                router.push('/');
+            if (response)
+                window.location.href = '/';
         } catch (error: any) {
+            console.error('Error:', error);
             formik.setErrors({ userName: 'userName is already used' });
         }
     }
@@ -25,15 +51,16 @@ const UpdateForm = () => {
     const formik = useFormik({
         initialValues: updateForm,
         validationSchema: updateValidationSchema,
-        onSubmit: sendUpdateRequest,
+        onSubmit: ()=>{sendUpdateRequest(formik.values)},
     });
 
     return (
         <form onSubmit={formik.handleSubmit} className="input-container">
             <input value={formik.values.userName}
-             onChange={formik.handleChange} name="userName" key="userName"
-            className={`input ${formik.errors['userName'] && formik.touched['userName'] ? 'InputError' : ''}`}
-            placeholder="UserName" type="text" autoComplete="yes" onBlur={formik.handleBlur}
+                onChange={formik.handleChange} name="userName" key="userName"
+                className={`input ${formik.errors['userName'] && formik.touched['userName'] ? 'InputError' : ''}`}
+                placeholder={userName ? `${'userName : ' + userName}` : 'Username'}
+                type="text" autoComplete="yes" onBlur={formik.handleBlur}
             />
             {formik.errors.userName && formik.touched.userName ? <p className="ErrorMessage">{formik.errors.userName}</p> : ''}
             <input value={formik.values.Password} 

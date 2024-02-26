@@ -28,13 +28,18 @@ export default function landingPage()
                     withCredentials: true,
                 });
                 if (res.data === undefined || res.data === false || res.data === null) {
-                    //console.log('Error:', res.data);
+                    console.log('data:', res.data);
                     router.push('/login');
                 }
                 else
+                {
+                    if (res.data.updated) {
+                        router.push('/');
+                    }
                     setData(res.data);
+                }
                 } catch (error) {
-                    //console.log('Error:', error);
+                    console.log('Error:', error);
                     router.push('/login');
                 }
         }
