@@ -64,7 +64,7 @@ function main()
             } 
         }
         getdata();
-    },[]);
+    },[needUpdate]);
 
 
   
