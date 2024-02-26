@@ -1,6 +1,6 @@
 import Image from "next/image";
 import '@/styles/login/landingPage.css';
-import bgound from '../../public/Backgroundimage.svg';
+import bgound from '../../public/Backgroundimage.webp';
 // import '@/styles/globals.css';
 
 export default function BackGround() {
@@ -13,8 +13,10 @@ export default function BackGround() {
                 quality={100}
                 fill
                 sizes="100vw"
+                placeholder="blur"
                 style={{
                     objectFit: 'cover',
+                    filter: 'saturate(0.75)',
                 }} />
          </div>
     );
