@@ -18,11 +18,11 @@ export const updateForm =  {
 export const signupValidationSchema = Yup.object().shape({
     LastName: Yup.string()
         .min(2, 'Too Short!')
-        .max(16, 'Too Long!')
+        .max(20, 'Too Long!')
         .required('Required'),
     FirstName: Yup.string()
         .min(2, 'Too Short!')
-        .max(16, 'Too Long!')
+        .max(20, 'Too Long!')
         .required('Required'),
     Email: Yup.string().email('Invalid email').required('Required'),
 });
@@ -30,8 +30,8 @@ export const signupValidationSchema = Yup.object().shape({
 export const updateValidationSchema = Yup.object().shape({
     userName: Yup.string()
         .min(4, 'Too Short!')
-        .max(16, 'Too Long!')
-        // .required('Required')
+        .max(20, 'Too Long!')
+        .required('Required')
         .matches(/^[a-zA-Z0-9-_]+$/, 'No spaces or special characters allowed'),
     Password: Yup.string()
         .min(6, 'Too Short!')

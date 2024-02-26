@@ -4,7 +4,6 @@ import '@/styles/login/styles.css'
 import '@/styles/update/update.css'
 import Image from "next/image";
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import UpdateForm from './UpdateForm';
 import UpdateUserData from '@/components/context/update.context';
 
@@ -13,7 +12,6 @@ const UpdatePage = () => {
     const context = useContext(UpdateUserData);
     const [imageSrc, setImageSrc] = useState(context?.image? context.image : "./defaultImg.svg");
     const [file, setFile] = useState<File | null>(null);
-    // const router = useRouter();
     
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,37 +19,6 @@ const UpdatePage = () => {
         setImageSrc(file ? URL.createObjectURL(file) : "./defaultImg.svg");
         setFile(file || null);
     };
-
-    // const sendImg = () => {
-    //     if (file) {
-    //         const formData = new FormData();
-    //         formData.append("file", file);
-    //         if (context?.userName) {
-    //             formData.append("userName", context.userName);
-    //         }
-    //         fetch(process.env.NEST_API + '/upload', {
-    //             method: 'POST',
-    //             body: formData,
-    //             headers: {
-    //                 'Accept': 'form-data',
-    //             },
-    //             credentials: 'include',
-    //         })
-    //         .then(Response => {
-    //             if (!Response.ok) {
-    //                 throw new Error('Network response was not ok');
-    //             }
-    //             router.push('/');
-    //         })
-    //         .then(data => {
-    //             //console.log('Success:', data);
-    //             // router.push('/');
-    //         })
-    //         .catch((error) => {
-    //             // //console.error('Error:', error);
-    //         });
-    //     }
-    // }
    
 
     return (

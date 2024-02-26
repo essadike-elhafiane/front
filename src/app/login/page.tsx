@@ -50,9 +50,10 @@ function main()
                 );
                 if (res.data) {
                   if (typeof window !== 'undefined') {
-                    if (res.data.updated) {
+                    if (res.data.update === true) {
                       router.push('/');
-                    } else {
+                    } 
+                    else {
                       setUser(res.data);
                       setNeedUpdate(true);
                     }

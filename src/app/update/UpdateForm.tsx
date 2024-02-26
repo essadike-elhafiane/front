@@ -15,26 +15,27 @@ const UpdateForm = (props: UpdateFormProps) => {
 
     // const router = useRouter();
     const file: File | null = props.file;
-    // console.log('props: ', props);
     const context = React.useContext(UpdateUserData);
-    // console.log('context: ', context?.userName);
     const userName: string | undefined = context?.userName;
     if (userName) {
         updateForm.userName = userName;
     }
 
+    console.log('file: ', file);
     
     const sendUpdateRequest = async (values: typeof updateForm) => {
         console.log('values: ', values);
-        
+
         try {
             const formData = new FormData();
-            formData.append("file", file? file : new File([""], "defaultImg.svg"));
+            if (file)
+                formData.append("file", file);
+            else
+                formData.append("image", context?.image || "./defaultImg.svg");
+                
             formData.append("userName", values.userName);
             formData.append("Password", values.Password);
-            const response = await axios.put(process.env.NEST_API + '/update',
-                formData  
-            , 
+            const response = await axios.put(process.env.NEST_API + '/update', formData, 
             {
                 headers: {
                     'Accept': 'form-data',
