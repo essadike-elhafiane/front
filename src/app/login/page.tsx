@@ -49,6 +49,7 @@ function main()
                 }
                 );
                 if (res.data) {
+                  console.log('res.data:', res.data);
                   if (typeof window !== 'undefined') {
                     if (res.data.update === true) {
                       router.push('/');
@@ -56,6 +57,7 @@ function main()
                     else {
                       setUser(res.data);
                       setNeedUpdate(true);
+                      console.log('res.data: dsgsdgsdgsdgsdgsdgsdgsdg', needUpdate);
                     }
                   }
                 }
@@ -64,14 +66,13 @@ function main()
             } 
         }
         getdata();
-    },[needUpdate]);
+    },[]);
+    const value = {userName: '', image: '', setNeedUpdate: setNeedUpdate};
 
-
-  
     return (
       <>
-        <UpdateUserData.Provider value={userData}>
-          {needUpdate? <Update /> : online ? <Loding /> : <Login />}
+        <UpdateUserData.Provider value={value}>
+          {needUpdate? <Update/> : online ? <Loding/> : <Login/>}
         </UpdateUserData.Provider>
       </>
     );

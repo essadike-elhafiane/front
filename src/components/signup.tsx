@@ -2,17 +2,13 @@ import axios from "axios";
 import {useFormik } from "formik";
 import { SignupForm, signupValidationSchema } from "./Formik/Formik";
 import '@/styles/login/styles.css';
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
+import UpdateUserData from "./context/update.context";
+import { useContext } from "react";
 
 export default function Signup() {
-    const router = useRouter();
-
-    const signupRequest =  (values: typeof SignupForm) => {
-        useEffect(() => {
+    const context = useContext(UpdateUserData);
+    const signupRequest = async (values: typeof SignupForm) => {
         // console.log('valus',values);
-        const signupRequest = async () => {
         try {
             const response = await axios.post(process.env.NEST_API + '/signup', {
                 firstName: values.FirstName,
@@ -22,30 +18,17 @@ export default function Signup() {
             }, {
                 withCredentials: true
             });
-            console.log(response.data);
-            if(response)
-                window.location.reload();
-            else
+            // console.log(response.data);
+            if(!response)
                 throw new Error('Error');
+            if(response.data.update === false)
+                context?.setNeedUpdate(true);
+            // router.refresh();
         } catch (error: any) {
-            //console.error(error?.response?.data?.target);
-                console.log(error);
-                // case "userName":
-                //     formik.setErrors({ userName: 'userName is already used' });
-                //     break;
-             
+                console.log(error); 
                 formik.setErrors({ Email: 'Email is already used or invalide' });
-                
-                // default:
-                //     alert("Something went wrong");
-                //     break;
-            
         }
-         signupRequest();
-        }
-    }, []);
     }
-
     
     const formik = useFormik(
         {

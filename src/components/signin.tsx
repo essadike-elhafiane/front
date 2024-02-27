@@ -1,12 +1,13 @@
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import { use, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import UpdateUserData from "./context/update.context";
 
 export default function Signin() {
 
     const [error, setError] = useState(false);
-    const router = useRouter();
     const inputRef = useRef(null);
+
+    const context = useContext(UpdateUserData);
 
     useEffect(() => {
         if (inputRef.current) {
@@ -18,7 +19,6 @@ export default function Signin() {
     {
         e.preventDefault();
         //console.log('singRequest');
-        useEffect(() => {
         const f = async () => {
             e.preventDefault();
             //console.log('singRequest');
@@ -27,7 +27,6 @@ export default function Signin() {
                 email: (document.getElementsByName("Email or UserName")[0] as HTMLInputElement).value,
                 password: (document.getElementsByName("Password")[0] as HTMLInputElement).value
             };
-            
             try {
                 const response = await axios.post(process.env.NEST_API + '/signin', JSON.stringify(data) , {
                     headers: {
@@ -40,7 +39,11 @@ export default function Signin() {
                 if (responseData.login === undefined || responseData.login === false || responseData.login === null) {
                     setError(true);
                 } else {
-                    window.location.reload();
+                    // window.location.reload();
+                    // router.push('/login');
+                    if(responseData.update === false)
+                        context?.setNeedUpdate(true);
+                    // router.refresh();
                     // e.currentTarget?.reset();
                     //console.log('Success:', e?.currentTarget);
                 }
@@ -52,8 +55,8 @@ export default function Signin() {
             }
         }
         f();
-        }, []);
     }
+
     return (
         <form className='input-container' onSubmit={singRequest}>
             <input ref={inputRef} name="Email or UserName" type="text" className={`input ${error ? 'InputError' : ""}`}  placeholder="Email or UserName"/>

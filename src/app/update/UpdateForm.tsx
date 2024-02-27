@@ -13,7 +13,7 @@ interface UpdateFormProps {
 
 const UpdateForm = (props: UpdateFormProps) => {
 
-    // const router = useRouter();
+    
     const file: File | null = props.file;
     const context = React.useContext(UpdateUserData);
     const userName: string | undefined = context?.userName;
@@ -27,6 +27,7 @@ const UpdateForm = (props: UpdateFormProps) => {
         console.log('values: ', values);
 
         try {
+            const router = useRouter();
             const formData = new FormData();
             if (file)
                 formData.append("file", file);
@@ -43,7 +44,7 @@ const UpdateForm = (props: UpdateFormProps) => {
                 withCredentials: true
             });
             if (response)
-                window.location.href = '/';
+                router.push('/');
         } catch (error: any) {
             console.error('Error:', error);
             formik.setErrors({ userName: 'userName is already used' });
