@@ -20,10 +20,10 @@ export default function Signup() {
             }, {
                 withCredentials: true
             });
-            console.log(response.data);
             if (!response)
-                throw new Error('Error');
-            context?.setUser(response.data);
+            throw new Error('Error');
+            console.log('data:  ', response.data, response?.data?.userName );
+            context?.setUser({ userName: response?.data?.userName || '', image: response?.data?.image || '' });
             context?.setNeedUpdate(true);
         } catch (error: any) {
                 console.log(error); 

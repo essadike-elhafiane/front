@@ -26,7 +26,7 @@ function main()
             try {
                 const ApiUrl: string | undefined =  process.env.NEST_API;
                 //console.log('ApiUrl:', ApiUrl , process.env);
-                const res = await axios.get(ApiUrl + '/status',
+                const res = await axios.get(ApiUrl + '/profile',
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -56,8 +56,8 @@ function main()
     },[]);
 
     const value = {
-      userName: userData.userName,
-      image: userData.image,
+      userName: userData?.userName,
+      image: userData?.image,
       setNeedUpdate: setNeedUpdate,
       setUser: setUser as React.Dispatch<React.SetStateAction<{ userName: string; image: string; }>>,
     };
