@@ -21,7 +21,7 @@ export default function landingPage()
                 const ApiUrl = process.env.NEST_API;
                 // //console.log('ApiUrl:', ApiUrl, process.env);
                 //console.log('Success:', ApiUrl+ '/status');
-                const res = await axios.get(ApiUrl + '/status', {
+                const res = await axios.get(ApiUrl + '/profile', {
                     headers: {
                         'Content-Type': 'application/json',
                     },
