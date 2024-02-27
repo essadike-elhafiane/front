@@ -13,20 +13,6 @@ import Login from './login';
 import Update from '../update/Update';
 
 
-
-async function authIntra()
-{
-    window.location.href = process.env.NEST_API + '/api/auth/intra';
-}
-
-async function authGoogle()
-{
-  // const res = await axios.get(process.env.NEST_API + '/api/auth/google');
-  // console.log('res:', res);
-  window.location.href = process.env.NEST_API + '/api/auth/google';
-}
-
-
 function main()
 {
   const router = useRouter(); 
@@ -66,13 +52,20 @@ function main()
             } 
         }
         getdata();
+
     },[]);
-    const value = {userName: userData.userName, image: userData.image, setNeedUpdate: setNeedUpdate};
+
+    const value = {
+      userName: userData.userName,
+      image: userData.image,
+      setNeedUpdate: setNeedUpdate,
+      setUser: setUser as React.Dispatch<React.SetStateAction<{ userName: string; image: string; }>>,
+    };
 
     return (
       <>
         <UpdateUserData.Provider value={value}>
-          {needUpdate? <Update/> : online ? <Loding/> : <Login/>}
+          {needUpdate ? <Update /> : online ? <Loding /> : <Login />}
         </UpdateUserData.Provider>
       </>
     );

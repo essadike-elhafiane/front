@@ -28,7 +28,6 @@ export default function landingPage()
                     withCredentials: true,
                 });
                 if (res.data === undefined || res.data === false || res.data === null || res.data.update === undefined || res.data.update === false) {
-                    console.log('data:', res.data);
                     router.push('/login');
                 }
                 else

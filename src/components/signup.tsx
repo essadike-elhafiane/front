@@ -1,29 +1,30 @@
+"use client";
 import axios from "axios";
 import {useFormik } from "formik";
 import { SignupForm, signupValidationSchema } from "./Formik/Formik";
 import '@/styles/login/styles.css';
 import UpdateUserData from "./context/update.context";
 import { useContext } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
     const context = useContext(UpdateUserData);
+    const router = useRouter();
     const signupRequest = async (values: typeof SignupForm) => {
-        // console.log('valus',values);
         try {
             const response = await axios.post(process.env.NEST_API + '/signup', {
                 firstName: values.FirstName,
                 email: values.Email,
                 lastName: values.LastName,
-                // password: `${values.Password}`
+                password: undefined // Update the type of password property
             }, {
                 withCredentials: true
             });
-            // console.log(response.data);
-            if(!response)
+            console.log(response.data);
+            if (!response)
                 throw new Error('Error');
-            if(response.data.update === false)
-                context?.setNeedUpdate(true);
-            // router.refresh();
+            context?.setUser(response.data);
+            context?.setNeedUpdate(true);
         } catch (error: any) {
                 console.log(error); 
                 formik.setErrors({ Email: 'Email is already used or invalide' });

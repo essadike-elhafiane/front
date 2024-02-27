@@ -1,20 +1,21 @@
+"use client";
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import UpdateUserData from "./context/update.context";
+import { useRouter } from "next/navigation";
 
 export default function Signin() {
 
     const [error, setError] = useState(false);
     const inputRef = useRef(null);
-
     const context = useContext(UpdateUserData);
-
+    const router = useRouter();
     useEffect(() => {
         if (inputRef.current) {
             (inputRef.current as HTMLInputElement)?.focus();
         }
     }, []);
-    
+
     function singRequest(e: React.FormEvent<HTMLFormElement>)
     {
         e.preventDefault();
@@ -35,6 +36,7 @@ export default function Signin() {
                     withCredentials: true,
                     // body: JSON.stringify(data)
                 });
+                console.log(response.data);
                 const responseData = response.data;
                 if (responseData.login === undefined || responseData.login === false || responseData.login === null) {
                     setError(true);
@@ -43,6 +45,9 @@ export default function Signin() {
                     // router.push('/login');
                     if(responseData.update === false)
                         context?.setNeedUpdate(true);
+                    else
+                        router.push('/');
+                    context?.setUser(response.data);
                     // router.refresh();
                     // e.currentTarget?.reset();
                     //console.log('Success:', e?.currentTarget);

@@ -2,7 +2,7 @@
 import { updateForm, updateValidationSchema } from "@/components/Formik/Formik";
 import { useFormik } from "formik";
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import  UpdateUserData  from "@/components/context/update.context";
 import React from "react";
 
@@ -23,11 +23,11 @@ const UpdateForm = (props: UpdateFormProps) => {
 
     console.log('file: ', file);
     
+    const router = useRouter();
     const sendUpdateRequest = async (values: typeof updateForm) => {
         console.log('values: ', values);
 
         try {
-            const router = useRouter();
             const formData = new FormData();
             if (file)
                 formData.append("file", file);
