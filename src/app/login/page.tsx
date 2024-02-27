@@ -67,7 +67,7 @@ function main()
         }
         getdata();
     },[]);
-    const value = {userName: '', image: '', setNeedUpdate: setNeedUpdate};
+    const value = {userName: userData.userName, image: userData.image, setNeedUpdate: setNeedUpdate};
 
     return (
       <>
