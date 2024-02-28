@@ -17,10 +17,12 @@ export const updateForm =  {
 
 export const signupValidationSchema = Yup.object().shape({
     LastName: Yup.string()
+        .transform((value) => value.trim())
         .min(2, 'Too Short!')
         .max(20, 'Too Long!')
         .required('Required'),
     FirstName: Yup.string()
+        .transform((value) => value.trim())
         .min(2, 'Too Short!')
         .max(20, 'Too Long!')
         .required('Required'),
@@ -29,6 +31,7 @@ export const signupValidationSchema = Yup.object().shape({
 
 export const updateValidationSchema = Yup.object().shape({
     userName: Yup.string()
+        .transform((value) => value.trim())
         .min(4, 'Too Short!')
         .max(20, 'Too Long!')
         .required('Required')

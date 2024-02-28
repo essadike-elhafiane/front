@@ -19,10 +19,7 @@ export default function Signin() {
     function singRequest(e: React.FormEvent<HTMLFormElement>)
     {
         e.preventDefault();
-        //console.log('singRequest');
-        const f = async () => {
-            e.preventDefault();
-            //console.log('singRequest');
+        const signin = async () => {
             const data = {
                 userName: (document.getElementsByName("Email or UserName")[0] as HTMLInputElement).value,
                 email: (document.getElementsByName("Email or UserName")[0] as HTMLInputElement).value,
@@ -34,32 +31,23 @@ export default function Signin() {
                         'Content-Type': 'application/json',
                     },
                     withCredentials: true,
-                    // body: JSON.stringify(data)
                 });
                 console.log(response.data);
                 const responseData = response.data;
                 if (responseData.login === undefined || responseData.login === false || responseData.login === null) {
                     setError(true);
                 } else {
-                    // window.location.reload();
-                    // router.push('/login');
                     if(responseData.update === false)
                         context?.setNeedUpdate(true);
                     else
                         router.push('/');
                     context?.setUser(response.data);
-                    // router.refresh();
-                    // e.currentTarget?.reset();
-                    //console.log('Success:', e?.currentTarget);
                 }
             } catch (error) {
                 setError(true);
-                // e.currentTarget?.reset();
-                // router.push('/login');
-                //console.error('Error:', error);
             }
         }
-        f();
+        signin();
     }
 
     return (

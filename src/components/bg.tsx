@@ -1,7 +1,6 @@
 import Image from "next/image";
 import '@/styles/login/landingPage.css';
 import bgound from '../../public/Backgroundimage.webp';
-// import '@/styles/globals.css';
 
 const BackGround = () => {
     return (

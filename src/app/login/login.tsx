@@ -15,6 +15,7 @@ return  (
           <div className='row'>
               <div className="logo">
                 <Image
+                    className="logoImg"
                     src='./Vector.svg'
                     alt="logo"
                     width={50}
@@ -22,7 +23,7 @@ return  (
                     style={{
                         maxWidth: "100%",
                     }} />
-                <h1>P<span>O</span>NGy</h1>
+                <h1 className="logoName">P<span>O</span>NGy</h1>
               </div>
               <div id='loginBtn'>
                   <a href='#' className={`${insignin ? 'inactive_sing' : 'active_sing' }`} onClick={()=>{

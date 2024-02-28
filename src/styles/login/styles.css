@@ -231,6 +231,26 @@
     padding: 20px 0;
 }
 
+.logoImg{
+    transition: all .9s ease;
+}
+
+.logoImg:hover {
+    transform: rotate(90deg);
+    filter: drop-shadow(0px -10px 10px #0064FB);
+    /* transition: .5s ease; */
+}
+
+.logoName{
+    transition: all .9s ease;
+}
+
+.logoName:hover{
+    filter: drop-shadow(10px 7px 10px #0064FB);
+    transition: .5s ease;
+}
+
+
 h1 span{
     color: #0064FB;
 }

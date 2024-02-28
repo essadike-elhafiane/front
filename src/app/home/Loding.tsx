@@ -1,15 +1,20 @@
 import '@/styles/login/styles.css';
 import '@/styles/login/loding.css'
+import Image from "next/image";
 
 export const Loding = () => {
   return (
       // <div className="loader"></div> 
       <div className='containerLoding'>
-        <div className="loader1">
-          <li className="ball"></li>
-          <li className="ball"></li>
-          <li className="ball"></li>
-        </div>
+        <Image
+          className="lodingImg"
+          src='./Vector.svg'
+          alt="logo"
+          width={50}
+          height={50}
+          style={{
+              maxWidth: "100%",
+          }} />
       </div>
   );
 };
