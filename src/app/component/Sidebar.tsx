@@ -4,19 +4,22 @@ import { useState } from "react";
 import axios from "axios";
 import Router from "next/navigation";
 import { useRouter } from "next/navigation";
-import UserDataContext from "@/components/context/context";
+import UserDataContext, { UserData } from "@/components/context/context";
 import { useContext } from "react";
 
-const Buttons = ({ButtonClick}) => {
+interface ButtonsProps {
+    ButtonClick: (value: number) => void;
+}
+
+const Buttons = ({ ButtonClick }: ButtonsProps) => {
     
     const [activeButton, setActiveButton] = useState(1);
 
-    const handleActiveButton = (buttonId) => {
-      setActiveButton(buttonId);
+    const handleActiveButton = (buttonId: number) => {
+        setActiveButton(buttonId);
     };
 
-    
-    const handleButtonClick = (value:number) => {
+    const handleButtonClick = (value: number) => {
         handleActiveButton(value);
         ButtonClick(value);
     };
@@ -54,11 +57,11 @@ const Buttons = ({ButtonClick}) => {
 
 }
 
-const PhoneButtons = ({ButtonClick}) => {
+const PhoneButtons = ({ ButtonClick }: ButtonsProps) => {
     
     const [activeButton, setActiveButton] = useState(1);
 
-    const handleActiveButton = (buttonId) => {
+    const handleActiveButton = (buttonId: number) => {
       setActiveButton(buttonId);
     };
 
@@ -92,9 +95,10 @@ const PhoneButtons = ({ButtonClick}) => {
     );
 }
 
-const Sidebar = ({ButtonClick}) => {
+const Sidebar = ({ButtonClick}: ButtonsProps) => {
 
     const data: UserData | null = useContext(UserDataContext);
+
     const router = useRouter()
     async function Logout() {
         try{
@@ -123,7 +127,7 @@ const Sidebar = ({ButtonClick}) => {
 
                     <Profile src={data?.image} />
 
-                    <h2 className="Username">{data.userName}</h2>
+                    <h2 className="Username">{data?.userName}</h2>
 
                     <div className="logoutSection">
                         <button className="logoutbutton" onClick={Logout}>

@@ -54,7 +54,7 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 const Tables = ()=>{
 	return (
-		<Carousel 
+		<Carousel placeholder="Carousel Placeholder"
 			className="tables rounded-lg"
 		>
     		<div className=" darktable relative h-1/2 w-full">
@@ -66,7 +66,7 @@ const Tables = ()=>{
     	  		/>
     	  		<div className="playdarknow absolute inset-0 grid h-full w-full place-items-center ">
     	    		<div className="w-3/4 text-center md:w-2/4">
-    	      			<Typography
+    	      			<Typography placeholder="Carousel Placeholder"
     	    		 	   variant="h2"
     	    		 	   color="white"
     	    			    className="typo"
@@ -74,7 +74,7 @@ const Tables = ()=>{
     	        			Dark Valley
     	      			</Typography>
     	      			<div className="flex">
-    	        			<Button
+    	        			<Button placeholder="Carousel Placeholder"
 								className="playnow" 
 							 	color="blue">
     	        			  	Play Now
@@ -91,7 +91,7 @@ const Tables = ()=>{
     	  	/>
     		<div className="playlightnow absolute inset-0 grid h-full w-full place-items-center ">
     	    	<div className=" w-3/4 text-center md:w-2/4">
-    	      		<Typography
+    	      		<Typography placeholder="Carousel Placeholder"
     	        		variant="h2"
     	        		color="white"
     	        		className="typo"
@@ -100,7 +100,7 @@ const Tables = ()=>{
     	      		</Typography>
 
     	     	 	<div className="flex text-sm">
-    	      		  <Button
+    	      		  <Button placeholder="Carousel Placeholder"
 					  		className="playnow"
 							color="white">
     	      	  	 	Play Now
@@ -192,7 +192,11 @@ const BackGround = ()=> {
 
 
 
-const Home = ({active}) => {
+type HomeProps = {
+	active: number;
+};
+
+const Home = ({ active }: HomeProps) => {
 	return (
 		<div className="homepage">
 			{active === 1 && <div className="home">

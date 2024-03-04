@@ -31,7 +31,11 @@ const Memebers = ()=>{
     );
 }
 
-const UserOption = ({ className }) => {
+type UserOptionProps = {
+    className: string;
+};
+
+const UserOption = ({ className }: UserOptionProps) => {
     return (
         <div  className={`userOption ${className}`}>
             <div className="block">
