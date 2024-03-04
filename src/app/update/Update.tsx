@@ -23,18 +23,22 @@ const UpdatePage = () => {
 
     return (
     <>
-    <main className="main">
+    <main className="main_1">
         <div className="update-container">
-            <div className="logo">
+            <div className="flex items-center pt-8 w-50 logoContainer marginLeft">
                 <Image
+                    className='logoImg'
                     src={'./Vector.svg'}
                     alt="logo"
                     width={50}
                     height={50}
+                    priority={true}
                     style={{
+                        height: "auto",
+                        width: "auto",
                         maxWidth: "100%",
                     }} />
-                <h1>P<span>O</span>NGy</h1>
+                <h1 className='logoName'>P<span>O</span>NGy</h1>
             </div>
             <h1 id="Laststeps">Last steps</h1>
             <div className='update-row'>

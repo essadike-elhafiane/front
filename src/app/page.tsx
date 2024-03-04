@@ -3,14 +3,26 @@
 import { useEffect, useState } from 'react';
 import '../styles/login/landingPage.css';
 import axios from 'axios';
-import UserDataContext, { UserData } from '@/components/context';
-import Home from './home/Home';
+import UserDataContext,{UserData} from '@/components/context/context';
+import App from './App';
 import { Loding } from './home/Loding';
 import { useRouter } from 'next/navigation';
-// import '@/styles/globals.css';
+
 
 export default function landingPage()
 {
+    // const ddata: UserData = {
+    //     id: 0,
+    //     createdAt: new Date(),
+    //     updatedAt: new Date(),
+    //     userName: "ucef",
+    //     email: "",
+    //     image: "",
+    //     firstName: "",
+    //     lastName: "",
+    //     online: false,
+    // };
+
     const [data, setData] = useState<UserData | null>(null);
     
     const router = useRouter();
@@ -19,8 +31,6 @@ export default function landingPage()
     const getdata = async () => {
             try {
                 const ApiUrl = process.env.NEST_API;
-                // //console.log('ApiUrl:', ApiUrl, process.env);
-                //console.log('Success:', ApiUrl+ '/status');
                 const res = await axios.get(ApiUrl + '/profile', {
                     headers: {
                         'Content-Type': 'application/json',
@@ -33,27 +43,21 @@ export default function landingPage()
                 else
                     setData(res.data);
                 } catch (error) {
-                    console.log('Error:', error);
+                    // console.log('Error:', error);
                     router.push('/login');
                 }
         }
         getdata();
     },[]);
-
-    // useEffect(() => {
-    //     const jwt = window.location.hash.split('=')[1];
-    //     if (jwt) {
-    //         sessionStorage.setItem('jwt', jwt); // Consider more secure storage options
-    //         window.location.hash = '';
-    //     }
-    // }, []);
     
     return (
         <>
             <UserDataContext.Provider value={data}>
-            {data? <Home/> : <Loding/>}
+            {data? <App/> : <Loding/>}
+            {/* <App/> */}
             </UserDataContext.Provider>
         </>
     );
 }
 // req.password
+

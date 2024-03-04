@@ -1,16 +1,14 @@
 "use client";
 "use strict";
 import '@/styles/login/styles.css'
-import Image from "next/image";
-import Signup from '@/components/signup'
 import React, { useEffect, useState } from 'react';
-import Signin from '@/components/signin';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Loding } from '../home/Loding';
 import UpdateUserData from '@/components/context/update.context';
 import Login from './login';
 import Update from '../update/Update';
+import '@/app/globals.css'
 
 
 function main()
@@ -34,8 +32,7 @@ function main()
                     withCredentials: true,
                 }
                 );
-                if (res.data) {
-                  console.log('res.data:', res.data);
+                if (res.data && res.data.update !== undefined) {
                   if (typeof window !== 'undefined') {
                     if (res.data.update === true) {
                       router.push('/');
@@ -43,10 +40,11 @@ function main()
                     else {
                       setUser(res.data);
                       setNeedUpdate(true);
-                      console.log('res.data: dsgsdgsdgsdgsdgsdgsdgsdg', needUpdate);
                     }
                   }
                 }
+                else
+                  setonline(false);
             } catch (error) {
                 setonline(false);
             } 
