@@ -15,5 +15,5 @@ const existingConfig: Config = {
 };
 
 const mergedConfig = withMT(existingConfig);
-  
+
 export default mergedConfig;
