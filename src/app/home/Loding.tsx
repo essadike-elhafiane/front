@@ -12,9 +12,7 @@ export const Loding = () => {
           alt="logo"
           width={50}
           height={50}
-          style={{
-              maxWidth: "100%",
-          }} />
+        />
       </div>
   );
 };
