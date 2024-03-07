@@ -35,7 +35,7 @@ const QrCode = (props: QrCodeProps) => {
       (btnValue.current as HTMLButtonElement).textContent = "Verifying...";
     }
     const res = await axios.post(
-      "http://localhost:3000/enable-2fa",
+      process.env.NEST_API + "/enable-2fa",
       { token: input },
       {
         headers: {
@@ -153,7 +153,7 @@ const Disable2Fa = (props: Disable2FaProps) => {
       (btnValue.current as HTMLButtonElement).textContent = "Desabling...";
     }
     const res = await axios.post(
-      "http://localhost:3000/disable-2fa",
+      process.env.NEST_API + "/disable-2fa",
       { token: input },
       {
         headers: {
