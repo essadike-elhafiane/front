@@ -60,7 +60,7 @@ const QrCode = (props: QrCodeProps) => {
   useEffect(() => {
     if (!QRsrc) {
       const generate2Fa = async () => {
-        const res = await axios.get("http://localhost:3000/generate-2fa", {
+        const res = await axios.get(process.env.NEST_API + "/generate-2fa", {
           headers: {
             "Content-Type": "application/json",
           },
