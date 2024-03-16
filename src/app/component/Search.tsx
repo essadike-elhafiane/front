@@ -62,7 +62,7 @@ const Search = () => {
           onChange={(e) => setUserName(e.target.value)}
         />
       </div>
-      <div className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4">
+      <div className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 overflow-scroll">
         {users.map((user) => (
           user.userName.startsWith(userName) && (
           <User
