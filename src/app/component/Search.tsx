@@ -47,13 +47,13 @@ const User = (props: UserProps) => {
 
 const Search = () => {
   const [users, setUsers] = useState<UserProps[]>([]);
-  const [userName, setUserName] = useState<string>("");
+  const [userName, setUserName] = useState<string>("eelhafia");
 
   useEffect(() => {
     const search = async () => {
       try {
         const dataSearch = await axios.get(
-          "http://localhost:3000/user/search?userName=" + userName,
+          process.env.NEST_API + "/user/search?userName=" + userName,
           {
             withCredentials: true,
           }
