@@ -1,6 +1,6 @@
 "use client";
-"use strict";
-import { useEffect, useState } from "react";
+// "use strict";
+import { use, useEffect, useState } from "react";
 import "../styles/login/landingPage.css";
 import axios from "axios";
 import UserDataContext, { UserData } from "@/components/context/context";
@@ -14,6 +14,11 @@ import ProfileDataContext, {
 import { FriendsType, InvitsType } from "@/components/userProfile/Dto";
 import io, { Socket } from "socket.io-client";
 import SocketContext from "@/components/context/socket";
+import Gameplay from "./Game/GamePages/Gameplay";
+import BouncingBall from "./Game/GamePages/Gameplay";
+import Gameresult from "./Game/GamePages/Gameresult";
+import Friends from "@/components/userProfile/Friends";
+import Navbar from "./component/Navbar";
 
 
 /*
@@ -93,6 +98,11 @@ const getBlocked = async (proes: PropessetBlockedData) => {
 };
 
 export default function landingPage() {
+
+
+  
+
+ 
   const [data, setData] = useState<UserData | null>(null);
   const [checkTwoFactor, setCheckTwoFactor] = useState(
     data?.twoFaCheck || false
@@ -103,6 +113,9 @@ export default function landingPage() {
   const [Socket, setSocket] = useState<Socket | null>(null);
   const router = useRouter();
 
+
+
+
   useEffect(() => {
     // Check if the socket has already been initialized
     if (Socket) return;
@@ -112,6 +125,17 @@ export default function landingPage() {
         // autoConnect: true by default, so no need to explicitly call connect()
     });
   
+    socket.on("online", (data: {id: number}) => {
+      console.log("online", data);
+      if(data)
+        setFriendsData((currentFriends) => currentFriends ? currentFriends.map((friend: FriendsType) => friend.id === data.id ? {...friend, online: true} : friend) : null);
+    });
+
+    socket.on("offline", (data: {id: number}) => { 
+      console.log("offline", data);
+      if(data)
+        setFriendsData((currentFriends) => currentFriends ? currentFriends.map((friend: FriendsType) => friend.id === data.id ? {...friend, online: false} : friend) : null);
+    });
     // Setup event listeners only once
     socket.on("connect", () => {
         console.log("socket connected::::::::::::::::::::::");
@@ -133,22 +157,32 @@ export default function landingPage() {
     
     socket.on("NewFriend", (data: FriendsType) => {
       if (data === undefined || !data) return;
-      console.log("NewFriend", data);
+      // if(FriendsData?.some((friend) => friend.id === data.id)) return;
+      // console.log("NewFriend", data);
       setFriendsData((currentFriends) => currentFriends ? [...currentFriends, data] : [data]);
       setInvitsData((currentInvits) => currentInvits ? currentInvits.filter((invit: InvitsType) => invit.sender.id !== data.id) : null);
     });
 
     socket.on("NewInvit", (data: InvitsType) => {
       console.log("NewInvit :", data);
+      if(InvitsData?.find((invit: InvitsType) => invit.sender.id === data.sender.id)) return;
       setInvitsData((currentInvits) => currentInvits ? [...currentInvits, data] : [data]);
     });
   
+    socket.on("DeleteInvit", (id: number) => {
+      console.log("DeleteInvit", id);
+      setInvitsData((currentInvits) => currentInvits ? currentInvits.filter((invit: InvitsType) => invit.sender.id !== id) : null);
+    });
+    
     socket.on("NewBlocked", (data: FriendsType) => {
-        console.log("NewBlocked", data);
+      // const isUserBlocked = BlockedData?.some((blocked: FriendsType) => blocked.id === data.id);
+      // if (isUserBlocked) return;
+      // console.log("NewBlocked", data, isUserBlocked);
         setBlockedData((currentBlocked) => currentBlocked ? [...currentBlocked, data] : [data]);
         setFriendsData((currentFriends) => currentFriends ? currentFriends.filter((friend: FriendsType) => friend.id !== data.id) : null);
     });
   
+    
     // Update the Socket state to ensure this effect runs only once
     setSocket(socket);
   
@@ -211,16 +245,12 @@ export default function landingPage() {
     };
   }, []);
 
+  
   // console.log("FriendsData:", FriendsData);
   // console.log("InvitsData:", InvitsData);
   // console.log("BlockedData:", BlockedData);
 
   
-
-
-  
-
-
   return (
     <>
       <UserDataContext.Provider value={data}>
@@ -228,9 +258,12 @@ export default function landingPage() {
           value={{ FriendsData, InvitsData, BlockedData }}
         >
         <SocketContext.Provider value={Socket}>
+          
           {data ? (
             checkTwoFactor ? (
               <App />
+              
+          //    rungame && <> <Navbar /> <Gameplay gamemode={gamemode} gametype={gametype} friend={gamefiend} stopGame={stopGame} /></>
             ) : (
               <VerifyTwoFa close={setCheckTwoFactor} />
             )
