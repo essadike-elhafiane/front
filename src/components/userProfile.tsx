@@ -48,7 +48,7 @@ const QrCode = (props: QrCodeProps) => {
     if (btnValue && btnValue.current) {
       (btnValue.current as HTMLButtonElement).textContent = "Verify";
     }
-    console.log(res.data);
+    //console.log(res.data);
   }
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const QrCode = (props: QrCodeProps) => {
           },
           withCredentials: true,
         });
-        console.log(res.data);
+        //console.log(res.data);
         if (
           res.data &&
           (res.data.error === false || res.data.error === undefined)
@@ -175,7 +175,7 @@ const Disable2Fa = (props: Disable2FaProps) => {
     if (btnValue && btnValue.current) {
       (btnValue.current as HTMLButtonElement).textContent = "Disable";
     }
-    console.log(res.data);
+    //console.log(res.data);
   };
 
   return (

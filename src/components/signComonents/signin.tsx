@@ -32,7 +32,7 @@ export default function Signin() {
                     },
                     withCredentials: true,
                 });
-                console.log(response.data);
+                //console.log(response.data);
                 const responseData = response.data;
                 if (responseData.login === undefined || responseData.login === false || responseData.login === null) {
                     setError(true);

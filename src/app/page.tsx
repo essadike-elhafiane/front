@@ -51,12 +51,12 @@ const getFriends = async (proes: PropesBlockedData) => {
     const res = await axios.get(process.env.NEST_API + "/user/friends", {
       withCredentials: true,
     });
-    //   console.log(res);
+    //   //console.log(res);
     if (res) {
       proes.setFriendsData(res.data);
     }
   } catch (e) {
-    console.log(e);
+    //console.log(e);
   }
 };
 
@@ -69,12 +69,12 @@ const getInvits = async (proes: PropesgetInvits) => {
     const res = await axios.get(process.env.NEST_API + "/user/invits", {
       withCredentials: true,
     });
-    //   console.log(res);
+    //   //console.log(res);
     if (res) {
       proes.setInvitsData(res.data);
     }
   } catch (e) {
-    console.log(e);
+    //console.log(e);
   }
 };
 
@@ -91,9 +91,9 @@ const getBlocked = async (proes: PropessetBlockedData) => {
       }
     );
     proes.setBlockedData(dataBlocked.data);
-    // console.log('Blocked ::', dataBlocked);
+    // //console.log('Blocked ::', dataBlocked);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 
@@ -126,58 +126,58 @@ export default function landingPage() {
     });
   
     socket.on("online", (data: {id: number}) => {
-      console.log("online", data);
+      // //console.log("online", data);
       if(data)
         setFriendsData((currentFriends) => currentFriends ? currentFriends.map((friend: FriendsType) => friend.id === data.id ? {...friend, online: true} : friend) : null);
     });
 
     socket.on("offline", (data: {id: number}) => { 
-      console.log("offline", data);
+      // //console.log("offline", data);
       if(data)
         setFriendsData((currentFriends) => currentFriends ? currentFriends.map((friend: FriendsType) => friend.id === data.id ? {...friend, online: false} : friend) : null);
     });
     // Setup event listeners only once
     socket.on("connect", () => {
-        console.log("socket connected::::::::::::::::::::::");
+        //console.log("socket connected::::::::::::::::::::::");
     });
   
     socket.on("disconnect", () => {
-      console.log("socket disconnected::::::::::::::::::::::");
+      //console.log("socket disconnected::::::::::::::::::::::");
     });
 
     socket.on("DeleteFriend", (id : number) => {
-      console.log("DeleteFriend", id);
+      // //console.log("DeleteFriend", id);
       setFriendsData((currentInvits) => currentInvits ? currentInvits.filter((invit: FriendsType) => invit.id !== id) : null);
     })
 
     socket.on("UnBlocked", (id : number) => {
-      console.log("UnBlocked", id);
+      // //console.log("UnBlocked", id);
       setBlockedData((currentBlocked) => currentBlocked ? currentBlocked.filter((blocked: FriendsType) => blocked.id !== id) : null);
     });
     
     socket.on("NewFriend", (data: FriendsType) => {
       if (data === undefined || !data) return;
       // if(FriendsData?.some((friend) => friend.id === data.id)) return;
-      // console.log("NewFriend", data);
+      // //console.log("NewFriend", data);
       setFriendsData((currentFriends) => currentFriends ? [...currentFriends, data] : [data]);
       setInvitsData((currentInvits) => currentInvits ? currentInvits.filter((invit: InvitsType) => invit.sender.id !== data.id) : null);
     });
 
     socket.on("NewInvit", (data: InvitsType) => {
-      console.log("NewInvit :", data);
+      // //console.log("NewInvit :", data);
       if(InvitsData?.find((invit: InvitsType) => invit.sender.id === data.sender.id)) return;
       setInvitsData((currentInvits) => currentInvits ? [...currentInvits, data] : [data]);
     });
   
     socket.on("DeleteInvit", (id: number) => {
-      console.log("DeleteInvit", id);
+      // //console.log("DeleteInvit", id);
       setInvitsData((currentInvits) => currentInvits ? currentInvits.filter((invit: InvitsType) => invit.sender.id !== id) : null);
     });
     
     socket.on("NewBlocked", (data: FriendsType) => {
       // const isUserBlocked = BlockedData?.some((blocked: FriendsType) => blocked.id === data.id);
       // if (isUserBlocked) return;
-      // console.log("NewBlocked", data, isUserBlocked);
+      // //console.log("NewBlocked", data, isUserBlocked);
         setBlockedData((currentBlocked) => currentBlocked ? [...currentBlocked, data] : [data]);
         setFriendsData((currentFriends) => currentFriends ? currentFriends.filter((friend: FriendsType) => friend.id !== data.id) : null);
     });
@@ -221,9 +221,9 @@ export default function landingPage() {
             setData(res.data);
             setCheckTwoFactor(true);
           } else setData(res.data);
-          console.log("Data:", res.data, data);
+          //console.log("Data:", res.data, data);
         } catch (error) {
-          // console.log('Error:', error);
+          // //console.log('Error:', error);
           router.push("/login");
         }
       };
@@ -246,9 +246,9 @@ export default function landingPage() {
   }, []);
 
   
-  // console.log("FriendsData:", FriendsData);
-  // console.log("InvitsData:", InvitsData);
-  // console.log("BlockedData:", BlockedData);
+  // //console.log("FriendsData:", FriendsData);
+  // //console.log("InvitsData:", InvitsData);
+  // //console.log("BlockedData:", BlockedData);
 
   
   return (

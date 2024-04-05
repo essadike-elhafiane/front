@@ -32,11 +32,11 @@ const Game : React.FC<{}> = () => {
   const position = useRef<Gameresponse >({player1: 50, player2: 50, player1score: 0, player2score: 0, ball: { x: 50, y: 50 } , stop : 0 , gameover : false});
   useEffect (() => {
     const updatePosition = (mydata: Gameresponse ) => {
-      console.log(mydata);
+      //console.log(mydata);
       if (game?.playerposition == "left")
       {
-        // console.log(mydata);
-        // console.log(game?.playerporistion);
+        // //console.log(mydata);
+        // //console.log(game?.playerporistion);
         position.current.ball =  mydata.ball;
         position.current.player1 = mydata.player1;
         position.current.player2 = mydata.player2;
@@ -45,8 +45,8 @@ const Game : React.FC<{}> = () => {
       }
       else if (game?.playerposition == "right")
       {
-        // console.log(mydata);
-        // console.log(props.playerporistion);
+        // //console.log(mydata);
+        // //console.log(props.playerporistion);
         position.current.ball.y =  mydata.ball.y;
         position.current.ball.x = 100 - mydata.ball.x;
         position.current.player1 = mydata.player2;

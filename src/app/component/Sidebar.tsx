@@ -193,12 +193,12 @@ const Sidebar = (props: { showPopup: boolean}) => {
         withCredentials: true,
       });
       if (res.data) {
-        // //console.log('Success:', data);
+        // ////console.log('Success:', data);
         socket?.disconnect();
         router.push("/login");
       }
     } catch (error) {
-      //console.error('Error:', error);
+      ////console.error('Error:', error);
     }
   }
 

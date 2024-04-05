@@ -157,7 +157,7 @@ const socket  = useContext(SocketContext );
     const HandelNotification = () => {
 
       socket?.on("gameInvitation", (data) => {
-        console.log("message" , data);
+        //console.log("message" , data);
         setNotification(data);
         setDisplayChoise(true);
         setDisplay(true);
@@ -168,7 +168,7 @@ const socket  = useContext(SocketContext );
       });
 
       socket?.on("gameresponse", (data) => {
-        console.log("message1" , data);
+        //console.log("message1" , data);
         setNotification(data);
         setDisplayChoise(false);
         setDisplay(true);

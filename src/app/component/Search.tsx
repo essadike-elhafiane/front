@@ -356,17 +356,17 @@ const Search = () => {
         if (dataSearch.data) {
           setSentInvits(dataSearch.data.sentInvits);
           const data: UserProps[] = dataSearch.data.users;
-          console.log("data: ", data);
+          //console.log("data: ", data);
           const filter: UserProps[] = data.filter((u) => {
             return !friends?.InvitsData?.some((s) => s.sender.id === u.id);
           });
-          console.log("filter: ", filter);
+          //console.log("filter: ", filter);
           setUsers(filter);
-          console.log("users: ", users);
+          //console.log("users: ", users);
           setIsLoading(false);
         }
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     search();
@@ -386,7 +386,7 @@ const Search = () => {
       <div className="SearchContainer">
         <>
           {friends?.FriendsData?.map((friend) => {
-            // console.log("friend ----", friend);
+            // //console.log("friend ----", friend);
             return (
               friend.userName
                 .toLowerCase()

@@ -23,7 +23,7 @@ function main()
         const getdata = async () => {
             try {
                 const ApiUrl: string | undefined =  process.env.NEST_API;
-                //console.log('ApiUrl:', ApiUrl , process.env);
+                ////console.log('ApiUrl:', ApiUrl , process.env);
                 const res = await axios.get(ApiUrl + '/profile',
                 {
                     headers: {

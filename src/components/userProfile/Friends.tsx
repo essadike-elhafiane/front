@@ -26,9 +26,9 @@ interface friendsType {
 //         withCredentials: true,
 //       }
 //     );
-//     console.log(dataBlocked);
+//     //console.log(dataBlocked);
 //   } catch (error) {
-//     console.log(error);
+//     //console.log(error);
 //   }
 // };
 
@@ -90,9 +90,9 @@ const Friend = (props: friendsType) => {
             game?.setGamemode("friend")
             game?.settype("friend");
             game?.setgamefriend(props.value.id);
-            console.log("send game1 " ,game?.gametype , "33")
+            //console.log("send game1 " ,game?.gametype , "33")
             sendGame(props.value.id);
-            console.log("send game " , props.value.id , user?.id);
+            //console.log("send game " , props.value.id , user?.id);
             render?.setRender("playGame");
           }}
           alt="online"

@@ -64,11 +64,11 @@ const Gameplay : React.FC<{  }> = ( ) => {
     const socket = useContext(SocketContext);
     const render = useContext(RenderContext);
     useEffect(() => {
-      console.log('game :',game);
+      //console.log('game :',game);
       const handlcheck = () => {
       if (game?.lodingdata && game?.lodingdata.users.length < 2)
       {
-          console.log("gameloding" , game?.lodingdata.users.length);
+          //console.log("gameloding" , game?.lodingdata.users.length);
           game?.setRunning(false);
           game?.setlodingdata({
           users  : [{
@@ -95,19 +95,19 @@ const Gameplay : React.FC<{  }> = ( ) => {
     {
       const handlegameroom =(responsedata : { room  :{ users : Userinfo[]  , gameloding : boolean} , alreadymatch : boolean }) =>
       {
-        console.log(responsedata);
+        //console.log(responsedata);
         if ( responsedata && responsedata.room  && responsedata.room.users && responsedata.room.users.length == 2) 
         {
 
           if (game?.lodingdata && game?.lodingdata.users.length < 2 && responsedata.room.users[0].clientid ==  user?.id )
           {
-            console.log("left");
+            //console.log("left");
             game?.setplayerposition("left");
           }
           else if  (game?.lodingdata &&  game?.lodingdata.users.length < 2  && responsedata.room.users[1].clientid == user?.id)
           {
             game?.setplayerposition("right");
-            console.log("right");
+            //console.log("right");
             var tmp = responsedata.room.users[0];
             responsedata.room.users[0] = responsedata.room.users[1];
             responsedata.room.users[1] = tmp;

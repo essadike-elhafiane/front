@@ -117,8 +117,8 @@ const More = ({user}: {user: ChatData})=> {
 
 const Message = ({handleMsgClick, user } : Props) =>{
 
-    console.log("--")
-    console.log(user.lastMessage);
+    //console.log("--")
+    //console.log(user.lastMessage);
 
     return (
         <div className="Message">
@@ -244,7 +244,7 @@ const Conversation = (props : ConvoProps) =>{
                 });
                 setConvo(response.data);
             } catch {
-                console.log('Error Fetching data for all messages !');
+                //console.log('Error Fetching data for all messages !');
             }
         }
         fetchConvo();
@@ -315,7 +315,7 @@ const Chat = () => {
         setChatdata((prevConvo) => {
           if (prevConvo) {
             const updatedConvo = [ newChatData, ...prevConvo ];
-            // console.log("--before")
+            // //console.log("--before")
             return updatedConvo;
         }
         return [newChatData];
@@ -331,7 +331,7 @@ const Chat = () => {
                 });
                 setChatdata([...response.data].reverse());
             } catch (error) {
-                console.error('Error fetching data:', error);
+                //console.error('Error fetching data:', error);
             }
         };
         fetchData();
@@ -347,8 +347,8 @@ const Chat = () => {
             setChatdata(chatdata.filter(chat => chat.id !== newChatData.id));
         appendChat(newChatData);
         // ^^ this logic gets it sorted when appending new conversations ^^ \\
-        // console.log("----")
-        // console.log(chatdata)
+        // //console.log("----")
+        // //console.log(chatdata)
         
         //if you are inside the convo we pass the new message as props
 
